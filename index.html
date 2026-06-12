@@ -10,7 +10,7 @@
 
     <div class="acessibilidade-widget" id="widgetAcessibilidade">
         <button class="btn-floating-acessibilidade" id="btnAbrirMenu" aria-label="Abrir opções de acessibilidade" aria-haspopup="true" aria-expanded="false">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
                 <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
             </svg>
         </button>
@@ -36,159 +36,211 @@
 
     <header class="cabecalho" role="banner">
         <div class="logo">🌱 SustentaAgro</div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação">☰</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
         <nav class="menu" id="menuPrincipal" aria-label="Menu principal">
             <a href="#inicio">Início</a>
-            <a href="#argumentos">Metas e ODS</a>
-            <a href="#tecnologias">Tecnologias</a>
-            <a href="#glossario">Glossário</a>
-            <a href="#dados-ibge">Dados IBGE</a>
+            <a href="#multidia-multiverse">Multimídia</a>
+            <a href="#conteudo-dinamico">Painel Interativo</a>
             <a href="#calculadora">Simulador</a>
-            <a href="#quiz">Desafio Quiz</a>
+            <a href="#quiz">Quiz Agrinho</a>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
         <div class="hero-conteudo animar-subir">
+            <span class="badge-tag">Agrinho 2026</span>
             <h1>Agro Forte, Futuro Sustentável</h1>
             <p>Conectando a alta produtividade do campo paranaense com as metas globais de preservação ambiental e inteligência tecnológica.</p>
+            
             <div class="botoes-hero">
-                <a href="#argumentos" class="botao">Explorar Projeto</a>
-                <button class="btn-ouvir" onclick="ouvirTextoExclusivo('inicio-texto')">🔊 Ouvir Narração</button>
+                <a href="#conteudo-dinamico" class="botao">Começar Exploração</a>
+                <button class="btn-ouvir" onclick="ouvirTextoExclusivo('inicio-texto')">🔊 Ouvir Intro</button>
             </div>
+
+            <div class="social-hero-links">
+                <a href="https://github.com/SEU-USUARIO" target="_blank" class="btn-social-hero gh">
+                    📁 Repositório GitHub
+                </a>
+                <a href="https://instagram.com/SEU-INSTAGRAM" target="_blank" class="btn-social-hero ig">
+                    📸 Siga no Instagram
+                </a>
+            </div>
+
             <span id="inicio-texto" class="sr-only">Agro Forte, Futuro Sustentável. Conectando a alta produtividade do campo paranaense com as metas globais de preservação ambiental e inteligência tecnológica.</span>
         </div>
     </section>
 
-    <section id="argumentos" class="container animar-subir">
-        <div class="topo-secao-acessivel">
-            <h2 class="titulo-secao">Nosso Propósito e Metas Globais</h2>
-            <button class="btn-ouvir-secao" onclick="ouvirTextoExclusivo('conteudo-argumentos')">🔊 Ouvir Seção</button>
+    <section id="multidia-multiverse" class="container animar-subir">
+        <div class="text-center">
+            <h2 class="titulo-secao">Inovação e Recursos Digitais</h2>
+            <p class="subtitulo">Explore a narrativa do agro sustentável através de inteligência artificial cinematográfica e arte sequencial.</p>
         </div>
-        
-        <div class="argumentos-grid" id="conteudo-argumentos">
-            <div class="argumento-texto">
-                <h3>O Desafio de 2026: Produzir sem Destruir</h3>
-                <p>O grande argumento da agricultura moderna é a <strong>otimização de recursos</strong>. Não precisamos expandir fronteiras físicas ou desmatar novas áreas para alimentar a população; o segredo está em usar a tecnologia digital para extrair o máximo potencial de cada hectare de forma limpa.</p>
-                <p>Nosso projeto visa conscientizar produtores e estudantes sobre como o Paraná lidera essa transição através de práticas integradas.</p>
+
+        <div class="multimidia-grid">
+            <div class="midia-box">
+                <div class="topo-midia">
+                    <span>🎬 Produção Cinemática (IA Veo 3)</span>
+                </div>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID" title="Vídeo Inteligência Artificial Agrinho" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="corpo-midia">
+                    <h4>O Futuro do Campo em Ultra-Resolução</h4>
+                    <p>Curta-metragem conceitual gerado através do modelo de inteligência artificial degenerativa Veo 3, simulando a harmonia entre maquinários automatizados e biomas preservados no Paraná.</p>
+                </div>
             </div>
-            
-            <div class="ods-box">
-                <h3>Indicadores de Progresso Tecnológico</h3>
-                <div class="progresso-ods">
-                    <label>ODS 2: Eficiência da Agricultura Familiar</label>
-                    <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 75%;">75%</div></div>
+
+            <div class="midia-box">
+                <div class="topo-midia">
+                    <span>📚 Histórias em Quadrinhos (HQ)</span>
                 </div>
-                <div class="progresso-ods">
-                    <label>ODS 12: Redução de Desperdício Hídrico</label>
-                    <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 60%;">60%</div></div>
+                <div class="hq-preview-container">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Capa da HQ SustentaAgro" class="hq-img-thumb">
+                    <div class="overlay-hq">
+                        <a href="LINK_DA_SUA_HQ_COMPLETA_OU_PDF" target="_blank" class="botao">📖 Ler Quadrinho Completo</a>
+                    </div>
                 </div>
-                <div class="progresso-ods">
-                    <label>ODS 13: Uso de Matrizes Energéticas Limpas</label>
-                    <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 40%;">40%</div></div>
+                <div class="corpo-midia">
+                    <h4>SustentaAgro em Quadrinhos</h4>
+                    <p>Uma aventura gráfica pedagógica desenvolvida para o público infanto-juvenil, traduzindo conceitos complexos de ESG e rotação de culturas de forma lúdica e acessível.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="tecnologias" class="secao-alternada">
+    <main id="conteudo-dinamico" class="secao-abas secao-alternada">
         <div class="container">
-            <div class="topo-secao-acessivel">
-                <h2 class="titulo-secao">Pilares da Tecnologia Sustentável</h2>
-                <button class="btn-ouvir-secao" onclick="ouvirTextoExclusivo('conteudo-tecnologias')">🔊 Ouvir Seção</button>
+            <div class="text-center">
+                <h2 class="titulo-secao">Central de Conhecimento Integrado</h2>
+                <p class="subtitulo">Alterne entre as abas para navegar de forma rápida pelos pilares do projeto.</p>
             </div>
-            
-            <div class="cards-grid" id="conteudo-tecnologias">
-                <article class="card animar-subir">
-                    <div class="card-imagem-container">
-                        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" alt="Sistema de irrigação por gotejamento na raiz da plantação." class="card-img">
-                    </div>
-                    <div class="card-corpo">
-                        <h3>Gotejamento Inteligente</h3>
-                        <p>Irrigação automatizada controlada por sensores de umidade no solo. Evita a evaporação excessiva e economiza até 60% de água microbiológica.</p>
-                    </div>
-                </article>
 
-                <article class="card animar-subir">
-                    <div class="card-imagem-container">
-                        <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=600&q=80" alt="Drone agrícola voando sobre lavoura." class="card-img">
-                    </div>
-                    <div class="card-corpo">
-                        <h3>Drones e Visão Computacional</h3>
-                        <p>Sensores espectrais mapeiam deficiências de nitrogênio e focos de pragas, permitindo a aplicação localizada de defensivos, reduzindo a carga química terrestre.</p>
-                    </div>
-                </article>
+            <div class="abas-navegacao-container" role="tablist">
+                <button class="aba-trigger ativa" role="tab" aria-selected="true" data-target="tab-metas">🎯 Metas e ODS</button>
+                <button class="aba-trigger" role="tab" aria-selected="false" data-target="tab-tecnologias">🛠️ Tecnologias</button>
+                <button class="aba-trigger" role="tab" aria-selected="false" data-target="tab-glossario">📖 Glossário Técnico</button>
+                <button class="aba-trigger" role="tab" aria-selected="false" data-target="tab-dados">📊 Estatísticas IBGE</button>
+            </div>
 
-                <article class="card animar-subir">
-                    <div class="card-imagem-container">
-                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=600&q=80" alt="Placas de energia solar instaladas no campo." class="card-img">
-                    </div>
-                    <div class="card-corpo">
-                        <h3>Autossuficiência Energética</h3>
-                        <p>A transição energética do campo utiliza o sol e resíduos de biomassa animal para neutralizar as emissões de carbono geradas na eletrificação rural.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section id="glossario" class="container animar-subir">
-        <h2 class="titulo-secao">Glossário Técnico da Sustentabilidade</h2>
-        <p class="text-center">Clique nos termos técnicos cruciais para entender os pilares do Agro Sustentável em 2026.</p>
-        
-        <div class="glossario-container">
-            <div class="glossario-item" onclick="toggleGlossario(this)">
-                <h4>O que é ESG no Campo? <span>+</span></h4>
-                <p class="glossario-resposta">Refere-se a critérios Ambientais, Sociais e de Governança. No agro, significa produzir protegendo biomas, valorizando o trabalhador rural e operando com transparência jurídica.</p>
-            </div>
-            <div class="glossario-item" onclick="toggleGlossario(this)">
-                <h4>O que é Agricultura de Precisão? <span>+</span></h4>
-                <p class="glossario-resposta">É o gerenciamento de lavouras considerando a variabilidade espacial e temporal. Usando dados de satélites e sensores, o produtor aplica insumos apenas onde e quando necessário.</p>
-            </div>
-            <div class="glossario-item" onclick="toggleGlossario(this)">
-                <h4>O que significa Crédito de Carbono? <span>+</span></h4>
-                <p class="glossario-resposta">É uma certificação recebida por produtores que evitam emissões ou removem gases estufa da atmosfera (usando plantio direto, por exemplo), podendo vender esses créditos a indústrias poluentes.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="dados-ibge" class="secao-alternada">
-        <div class="container animar-subir">
-            <div class="topo-secao-acessivel">
-                <h2 class="titulo-secao">Estatísticas do Agro no Paraná</h2>
-                <button class="btn-ouvir-secao" onclick="ouvirTextoExclusivo('conteudo-ibge')">🔊 Ouvir Seção</button>
-            </div>
-            <div id="conteudo-ibge">
-                <p class="text-center">Evidências e radiografia do campo com base no último Censo Agropecuário do IBGE.</p>
+            <div class="abas-conteudo-wrapper">
                 
-                <div class="grafico-container">
-                    <div class="barra-grafico" style="--porcentagem: 42%;">
-                        <span>42%</span>
-                        <label>Tratores</label>
+                <div id="tab-metas" class="aba-conteudo ativa" role="tabpanel">
+                    <div class="topo-secao-acessivel">
+                        <h3>Nosso Propósito e Metas Globais</h3>
+                        <button class="btn-ouvir-secao" onclick="ouvirTextoExclusivo('conteudo-argumentos')">🔊 Ouvir Conteúdo</button>
                     </div>
-                    <div class="barra-grafico" style="--porcentagem: 68%;">
-                        <span>68%</span>
-                        <label>Plantio Direto</label>
-                    </div>
-                    <div class="barra-grafico" style="--porcentagem: 85%;">
-                        <span>85%</span>
-                        <label>Manejo Integrado</label>
+                    <div class="argumentos-grid" id="conteudo-argumentos">
+                        <div class="argumento-texto">
+                            <h4>O Desafio de 2026: Produzir sem Destruir</h4>
+                            <p>O grande argumento da agricultura moderna é a <strong>otimização de recursos</strong>. Não precisamos expandir fronteiras físicas ou desmatar novas áreas para alimentar a população; o segredo está em usar a tecnologia digital para extrair o máximo potencial de cada hectare de forma limpa.</p>
+                        </div>
+                        <div class="ods-box">
+                            <h4>Indicadores de Progresso Tecnológico</h4>
+                            <div class="progresso-ods">
+                                <label>ODS 2: Eficiência da Agricultura Familiar</label>
+                                <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 75%;">75%</div></div>
+                            </div>
+                            <div class="progresso-ods">
+                                <label>ODS 12: Redução de Desperdício Hídrico</label>
+                                <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 60%;">60%</div></div>
+                            </div>
+                            <div class="progresso-ods">
+                                <label>ODS 13: Uso de Matrizes Energéticas Limpas</label>
+                                <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 40%;">40%</div></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <p class="fonte-dados">Fonte científica dos dados: <em>Censo Agropecuário - Instituto Brasileiro de Geografia e Estatística (IBGE)</em>.</p>
+
+                <div id="tab-tecnologias" class="aba-conteudo" role="tabpanel">
+                    <div class="topo-secao-acessivel">
+                        <h3>Pilares da Tecnologia Sustentável</h3>
+                        <button class="btn-ouvir-secao" onclick="ouvirTextoExclusivo('conteudo-tecnologias')">🔊 Ouvir Conteúdo</button>
+                    </div>
+                    <div class="cards-grid" id="conteudo-tecnologias">
+                        <article class="card">
+                            <div class="card-numero">01</div>
+                            <div class="card-corpo">
+                                <h3>Gotejamento Inteligente</h3>
+                                <p>Irrigação automatizada controlada por sensores de umidade no solo. Evita a evaporação excessiva e economiza até 60% de água microbiológica.</p>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-numero">02</div>
+                            <div class="card-corpo">
+                                <h3>Drones e Visão Computacional</h3>
+                                <p>Sensores espectrais mapeiam deficiências de nitrogênio e focos de pragas, permitindo a aplicação localizada de defensivos, reduzindo a carga química terrestre.</p>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-numero">03</div>
+                            <div class="card-corpo">
+                                <h3>Autossuficiência Energética</h3>
+                                <p>A transição energética do campo utiliza o sol e resíduos de biomassa animal para neutralizar as emissões de carbono geradas na eletrificação rural.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div id="tab-glossario" class="aba-conteudo" role="tabpanel">
+                    <h3>Glossário Técnico da Sustentabilidade</h3>
+                    <div class="glossario-container">
+                        <div class="glossario-item" onclick="toggleGlossario(this)">
+                            <h4>O que é ESG no Campo? <span>+</span></h4>
+                            <p class="glossario-resposta">Refere-se a critérios Ambientais, Sociais e de Governança. No agro, significa produzir protegendo biomas, valorizando o trabalhador rural e operando com transparência jurídica.</p>
+                        </div>
+                        <div class="glossario-item" onclick="toggleGlossario(this)">
+                            <h4>O que é Agricultura de Precisão? <span>+</span></h4>
+                            <p class="glossario-resposta">É o gerenciamento de lavouras considerando a variabilidade espacial e temporal. Usando dados de satélites e sensores, o produtor aplica insumos apenas onde e quando necessário.</p>
+                        </div>
+                        <div class="glossario-item" onclick="toggleGlossario(this)">
+                            <h4>O que significa Crédito de Carbono? <span>+</span></h4>
+                            <p class="glossario-resposta">É uma certificação recebida por produtores que evitam emissões ou removem gases estufa da atmosfera (usando plantio direto, por exemplo), podendo vender esses créditos a indústrias poluentes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-dados" class="aba-conteudo" role="tabpanel">
+                    <div class="topo-secao-acessivel">
+                        <h3>Estatísticas do Agro no Paraná</h3>
+                        <button class="btn-ouvir-secao" onclick="ouvirTextoExclusivo('conteudo-ibge')">🔊 Ouvir Conteúdo</button>
+                    </div>
+                    <div id="conteudo-ibge">
+                        <div class="grafico-container">
+                            <div class="barra-grafico" style="--porcentagem: 42%;">
+                                <span>42%</span>
+                                <label>Tratores</label>
+                            </div>
+                            <div class="barra-grafico" style="--porcentagem: 68%;">
+                                <span>68%</span>
+                                <label>Plantio Direto</label>
+                            </div>
+                            <div class="barra-grafico" style="--porcentagem: 85%;">
+                                <span>85%</span>
+                                <label>Manejo Integrado</label>
+                            </div>
+                        </div>
+                        <p class="fonte-dados">Fonte: <em>Censo Agropecuário - Instituto Brasileiro de Geografia e Estatística (IBGE)</em>.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </section>
+    </main>
 
     <section id="calculadora" class="container">
-        <div class="container-pequeno animar-subir">
+        <div class="container-pequeno">
             <h2>Simulador de Economia Hídrica</h2>
             <p>Insira a área da sua propriedade e comprove a redução do impacto ambiental através da engenharia de precisão.</p>
             
             <div class="formulario-box">
                 <label for="hectares">Área estimada para cultivo (em Hectares):</label>
                 <input type="number" id="hectares" placeholder="Ex: 15" min="1">
-                <button id="btnCalcular" class="botao-formulario">Calcular Impacto de Economia</button>
+                <button id="btnCalcular" class="botao-formulario">Calcular Impacto</button>
             </div>
 
             <div id="resultado" class="resultado-box hidden" aria-live="polite">
@@ -200,7 +252,7 @@
     </section>
 
     <section id="quiz" class="secao-alternada">
-        <div class="container animar-subir">
+        <div class="container">
             <div class="card-quiz">
                 <h2>Desafio Interativo Agrinho 2026 🌾</h2>
                 <p id="pergunta-quiz">Carregando pergunta...</p>
@@ -217,11 +269,21 @@
     </section>
 
     <footer class="rodape" role="contentinfo">
-        <p>&copy; 2026 SustentaAgro - Engenharia Front-End & Alura</p>
-        <p style="font-size: 0.75rem; margin-top: 8px; color: var(--cor-texto-suave);">Imagens integradas em ultra-resolução via CDN Unsplash.</p>
+        <div class="chancelas-container">
+            <div class="selo-governo">
+                <span class="selo-brasao">PARANÁ</span>
+                <span class="selo-subtexto">GOVERNO DO ESTADO</span>
+            </div>
+            <div class="linha-divisora-footer"></div>
+            <div class="selo-programa">
+                <span class="programa-titulo">PROGRAMAÇÃO PARANÁ</span>
+                <span class="programa-sub">Educação Tecnológica para o Futuro</span>
+            </div>
+        </div>
+        
+        <p class="copyright-text">&copy; 2026 SustentaAgro - Engenharia Front-End & Alura. Todos os direitos reservados para o Concurso Agrinho.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
-    </html>
-    
+</html>
