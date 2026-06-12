@@ -1,10 +1,9 @@
 // =================================================================
-// 1. ENGINE DE AUDIOVISUAL PROFISSIONAL (VOZ NEURAL DE ALTA FIDELIDADE)
+// 1. ENGINE DE AUDIOVISUAL INTERNO - VOZ NATURAL MELHORADA
 // =================================================================
 let leituraVozHabilitada = false;
-
-// Monitora o botão do painel flutuante
 const btnToggleVoz = document.getElementById('btnToggleVoz');
+
 btnToggleVoz.addEventListener('click', () => {
     leituraVozHabilitada = !leituraVozHabilitada;
     if (leituraVozHabilitada) {
@@ -18,7 +17,6 @@ btnToggleVoz.addEventListener('click', () => {
 });
 
 function ouvirTextoExclusivo(idElemento) {
-    // Se o usuário clicar explicitamente no botão de ouvir, ele executa independente da chave geral
     executarSintetizadorHumano(idElemento);
 }
 
@@ -31,24 +29,19 @@ function executarSintetizadorHumano(idElemento) {
     let textoLimpo = elemento.innerText || elemento.textContent;
     const utterance = new SpeechSynthesisUtterance(textoLimpo);
     
-    // CAPTAÇÃO AVANÇADA DE VOZES DO SISTEMA OPERACIONAL
+    // Força a varredura profunda pelas vozes nativas de alta performance brasileiras
     const vozes = window.speechSynthesis.getVoices();
-    
-    // Busca prioritária pelas vozes premium do Google, Microsoft ou Apple em português
     let vozSelecionada = vozes.find(v => v.lang === 'pt-BR' && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Microsoft')));
     
     if (!vozSelecionada) {
         vozSelecionada = vozes.find(v => v.lang === 'pt-BR' || v.lang.includes('pt'));
     }
 
-    if (vozSelecionada) {
-        utterance.voice = vozSelecionada;
-    }
+    if (vozSelecionada) utterance.voice = vozSelecionada;
 
-    // Parametrizando para remover o tom robótico
     utterance.lang = 'pt-BR';
-    utterance.rate = 0.92;  // Ritmo mais natural e pausado de palestra acadêmica
-    utterance.pitch = 1.05; // Ajuste fino harmônico para neutralizar o tom metálico
+    utterance.rate = 0.90;  // Velocidade cadenciada humana
+    utterance.pitch = 1.0; 
 
     elemento.classList.add('foco-leitura-ativo');
 
@@ -59,31 +52,28 @@ function executarSintetizadorHumano(idElemento) {
     window.speechSynthesis.speak(utterance);
 }
 
-// Inicializador de cache de vozes para navegadores Chromium (importante!)
 if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
 }
 
-
 // =================================================================
-// 2. SISTEMA REM DE FONTE FLUIDA (PRESERVA PROPORÇÃO E ACESSIBILIDADE)
+// 2. CONTROLE FLUIDO DE FONTE (MÉTODO REM SEGURO)
 // =================================================================
-let escalaFonteAtual = 100; // Percentual base
+let escalaFonteAtual = 100; 
 
 const atualizarTamanhoFonte = () => {
-    // Altera no elemento raiz (html), fazendo com que todo o site se adapte proporcionalmente
     document.documentElement.style.fontSize = `${escalaFonteAtual}%`;
 };
 
 document.getElementById('btnAumentarTexto').addEventListener('click', () => {
-    if (escalaFonteAtual < 150) { // Teto máximo de segurança para não quebrar o layout
+    if (escalaFonteAtual < 140) { 
         escalaFonteAtual += 10;
         atualizarTamanhoFonte();
     }
 });
 
 document.getElementById('btnDiminuirTexto').addEventListener('click', () => {
-    if (escalaFonteAtual > 80) { // Chão mínimo
+    if (escalaFonteAtual > 85) { 
         escalaFonteAtual -= 10;
         atualizarTamanhoFonte();
     }
@@ -94,9 +84,8 @@ document.getElementById('btnResetTexto').addEventListener('click', () => {
     atualizarTamanhoFonte();
 });
 
-
 // =================================================================
-// 3. CONTROLE COMPORTAMENTAL DO WIDGET FLUTUANTE
+// 3. WIDGET FLUTUANTE BEHAVIOR
 // =================================================================
 const btnAbrirMenu = document.getElementById('btnAbrirMenu');
 const painelAcessibilidade = document.getElementById('painelAcessibilidade');
@@ -107,7 +96,6 @@ btnAbrirMenu.addEventListener('click', (e) => {
     btnAbrirMenu.setAttribute('aria-expanded', !visivel);
 });
 
-// Fecha o painel caso o usuário clique fora dele
 document.addEventListener('click', (e) => {
     if (!painelAcessibilidade.contains(e.target) && e.target !== btnAbrirMenu) {
         painelAcessibilidade.classList.add('hidden');
@@ -115,9 +103,8 @@ document.addEventListener('click', (e) => {
     }
 });
 
-
 // =================================================================
-// 4. MECANISMOS EXISTENTES DO PROJETO (ESTABILIDADE MANTIDA)
+// 4. MOTOR DO GLOSSÁRIO, TEMAS E SIMULADORES
 // =================================================================
 function toggleGlossario(elemento) {
     document.querySelectorAll('.glossario-item').forEach(item => {
@@ -129,28 +116,24 @@ function toggleGlossario(elemento) {
 const elementosParaAnimar = document.querySelectorAll('.animar-subir');
 const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visivel');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visivel');
     });
 }, { threshold: 0.1 });
 
 elementosParaAnimar.forEach(el => scrollObserver.observe(el));
 document.querySelector('.hero-conteudo').classList.add('visivel');
 
-// Tema
+// Gerenciamento Estável de Temas
 const btnTema = document.getElementById('btnTema');
 btnTema.addEventListener('click', () => {
     const temaTarget = document.documentElement.getAttribute('data-tema') === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-tema', temaTarget);
 });
 
-// Menu Mobile
 document.getElementById('menuToggle').addEventListener('click', () => {
     document.getElementById('menuPrincipal').classList.toggle('active');
 });
 
-// Simulador
 document.getElementById('btnCalcular').addEventListener('click', () => {
     const hectares = parseFloat(document.getElementById('hectares').value);
     if (isNaN(hectares) || hectares <= 0) return;
@@ -159,7 +142,7 @@ document.getElementById('btnCalcular').addEventListener('click', () => {
     document.getElementById('resultado').classList.remove('hidden');
 });
 
-// Quiz
+// Quiz Engine
 const dadosQuiz = {
     pergunta: "Em consonância com as metas do IBGE e ODS de sustentabilidade, qual método assegura a longevidade ambiental e o ganho agrícola?",
     opcoes: [
