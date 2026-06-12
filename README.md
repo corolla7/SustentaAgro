@@ -1,6 +1,6 @@
 # 🌾 SustentaAgro
 
-> Projeto focado em tecnologia e sustentabilidade no campo para o **Concurso Agrinho 2026**, desenvolvido em parceria com os conteúdos da **Alura**.
+> Projeto focado em tecnologia e sustentabilidade no campo para o **Concurso Agrinho 2026**, desenvolvido com os conteúdos da **Alura**.
 
 O **SustentaAgro** é uma aplicação web interativa projetada para conscientizar estudantes, produtores rurais e a comunidade sobre a importância da agricultura de precisão e das práticas sustentáveis no Paraná, alinhando a alta produtividade às metas globais da ONU.
 
