@@ -86,13 +86,8 @@
             <div class="midia-box">
                 <div class="topo-midia">📚 História em Quadrinhos</div>
                 <div class="hq-viewer-local">
-                    <div class="hq-slide">
-                        <img src="imagens/hq_pagina1.png" id="hqPagina" alt="Página da História em Quadrinhos">
-                    </div>
-                    <div class="hq-controles">
-                        <button onclick="mudarPaginaHQ(-1)" class="btn-hq-nav">◀ Anterior</button>
-                        <span id="hqContador">Pág. 1</span>
-                        <button onclick="mudarPaginaHQ(1)" class="btn-hq-nav">Próxima ▶</button>
+                    <div class="hq-slide-unico">
+                        <img src="imagens/hq_pagina1.png" alt="História em Quadrinhos SustentaAgro">
                     </div>
                 </div>
                 <div class="corpo-midia">
@@ -108,6 +103,15 @@
             <div class="text-center">
                 <h2 class="titulo-secao texto-acessivel">Central de Conhecimento</h2>
                 <p class="subtitulo texto-acessivel">Clique nos painéis abaixo para expandir e explorar os conteúdos do projeto.</p>
+            </div>
+
+            <div class="carrossel-automatico-container">
+                <div class="carrossel-trilho" id="trilhoCarrossel">
+                    <div class="carrossel-slide"><img src="imagens/carrossel1.png" alt="Slide IA 1"></div>
+                    <div class="carrossel-slide"><img src="imagens/carrossel2.png" alt="Slide IA 2"></div>
+                    <div class="carrossel-slide"><img src="imagens/carrossel3.png" alt="Slide IA 3"></div>
+                </div>
+                <div class="carrossel-indicadores" id="indicadoresCarrossel"></div>
             </div>
 
             <div class="accordion-container">
@@ -126,9 +130,6 @@
                             <div class="argumento-texto">
                                 <h4 class="texto-acessivel">O Desafio: Produzir sem Destruir</h4>
                                 <p class="texto-acessivel">O grande argumento da agricultura moderna é a <strong>otimização de recursos</strong>. Não precisamos desmatar novas áreas para alimentar a população; o segredo está em usar a tecnologia para extrair o máximo de cada hectare de forma limpa.</p>
-                                <div class="espaco-imagem-agro">
-                                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=500&q=80" alt="Plantação sustentável sob tecnologia">
-                                </div>
                             </div>
                             <div class="ods-box">
                                 <h4 class="texto-acessivel">Indicadores de Progresso</h4>
@@ -139,9 +140,6 @@
                                 <div class="progresso-ods">
                                     <label class="texto-acessivel">ODS 12: Redução de Desperdício Hídrico</label>
                                     <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 60%;">60%</div></div>
-                                </div>
-                                <div class="espaco-imagem-agro">
-                                    <img src="https://images.unsplash.com/photo-1563514223300-b3b0d23f62f7?auto=format&fit=crop&w=500&q=80" alt="Irrigação de precisão no campo">
                                 </div>
                             </div>
                         </div>
@@ -160,9 +158,6 @@
                                 <div class="card-corpo">
                                     <h3 class="texto-acessivel">Gotejamento Inteligente</h3>
                                     <p class="texto-acessivel">Irrigação automatizada controlada por sensores de umidade no solo que evitam o desperdício.</p>
-                                    <div class="espaco-imagem-agro-card">
-                                        <img src="https://images.unsplash.com/photo-1463123081488-729f60cff356?auto=format&fit=crop&w=400&q=80" alt="Sensores de campo">
-                                    </div>
                                 </div>
                             </article>
                             <article class="card">
@@ -170,9 +165,6 @@
                                 <div class="card-corpo">
                                     <h3 class="texto-acessivel">Drones e Visão Computacional</h3>
                                     <p class="texto-acessivel">Sensores espectrais mapeiam deficiências e focos de pragas para aplicação cirúrgica de insumos.</p>
-                                    <div class="espaco-imagem-agro-card">
-                                        <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=400&q=80" alt="Drone sobrevoando lavoura">
-                                    </div>
                                 </div>
                             </article>
                         </div>
@@ -252,8 +244,8 @@
                 <img src="imagens/programacao_parana.png" alt="Logo Programação Paraná" class="img-selo-oficial">
             </div>
 
-            <div class="creditos-unsplash text-center">
-                <p>Imagens ilustrativas por <a href="https://unsplash.com" target="_blank">Unsplash</a></p>
+            <div class="creditos-tecnologia text-center">
+                <p>Elementos visuais desenvolvidos via inteligência artificial com suporte técnico das tecnologias Nano Banana e Veo 3.</p>
             </div>
 
             <div class="redes-sociais-footer">
