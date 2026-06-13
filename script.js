@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     
+    // ==========================================
+    // 1. MENU MOBILE (HAMBÚRGUER)
+    // ==========================================
     const menuToggle = document.getElementById('menuToggle');
     const menuPrincipal = document.getElementById('menuPrincipal');
     
@@ -10,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    /* ==========================================
-       LÓGICA DO CARROSSEL REFORMULADA (1376x768)
-       ========================================== */
+    // ==========================================
+    // 2. CARROSSEL RESPONSIVO (DESLOCAMENTO CORRIGIDO)
+    // ==========================================
     const trilho = document.getElementById('trilhoCarrossel');
     const slides = document.querySelectorAll('.carrossel-slide');
     const containerIndicadores = document.getElementById('indicadoresCarrossel');
@@ -22,10 +25,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let intervaloCarrossel;
 
     if (trilho && containerIndicadores && totalSlides > 0) {
-        // Redefine a largura correta baseada no número dinâmico de slides
-        trilho.style.width = `${totalSlides * 100}%`;
         containerIndicadores.innerHTML = ""; 
 
+        // Cria os pontinhos indicadores na tela
         slides.forEach((_, idx) => {
             const dot = document.createElement('div');
             dot.classList.add('indicador');
@@ -49,10 +51,10 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
 
+        // A CORREÇÃO ESTÁ AQUI: move exatamente 100% puro por imagem para alinhar na tela
         function irParaSlide(indice) {
             slideIndice = indice;
-            // Divide o percentual corretamente pelo número total de elementos alocados no trilho
-            trilho.style.transform = `translateX(-${(slideIndice * 100) / totalSlides}%)`;
+            trilho.style.transform = `translateX(-${slideIndice * 100}%)`;
             atualizarIndicadores();
         }
 
@@ -70,13 +72,32 @@ document.addEventListener("DOMContentLoaded", function() {
             iniciarAutoplay();
         }
 
+        // Inicializa o carrossel na primeira imagem corretamente
         irParaSlide(0);
         iniciarAutoplay();
     }
-    /* ========================================== */
 
-    const btnAbrirMenu = document.getElementById('btnAbrirMenu') || document.querySelector('.btn-floating-acessibilidade');
-    const painelAcessibilidade = document.getElementById('painelAcessibilidade') || document.querySelector('.menu-acessibilidade-painel');
+    // ==========================================
+    // 3. PAINÉIS ACCORDION (BOTÕES DESTRANCADOS)
+    // ==========================================
+    window.toggleAccordion = function(headerObjeto) {
+        const itemAtual = headerObjeto.parentElement;
+        itemAtual.classList.toggle('ativo');
+    };
+
+    // ==========================================
+    // 4. GLOSSÁRIO INTERNO
+    // ==========================================
+    window.toggleGlossarioInterno = function(event, elemento) {
+        event.stopPropagation();
+        elemento.classList.toggle('ativo');
+    };
+
+    // ==========================================
+    // 5. WIDGET DE ACESSIBILIDADE FLUTUANTE
+    // ==========================================
+    const btnAbrirMenu = document.getElementById('btnAbrirMenu');
+    const painelAcessibilidade = document.getElementById('painelAcessibilidade');
 
     if (btnAbrirMenu && painelAcessibilidade) {
         btnAbrirMenu.addEventListener('click', (event) => {
@@ -93,9 +114,10 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Controles de Fonte do Texto
     let tamanhoAtualFonte = 100;
-    const btnAumentar = document.getElementById('btnAumentarTexto') || document.getElementById('btnaumentar-fonte');
-    const btnDiminuir = document.getElementById('btnDiminuirTexto') || document.getElementById('btndiminuir-fonte');
+    const btnAumentar = document.getElementById('btnAumentarTexto');
+    const btnDiminuir = document.getElementById('btnDiminuirTexto');
     const btnReset = document.getElementById('btnResetTexto');
 
     if (btnAumentar) {
@@ -123,20 +145,20 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    const btnTema = document.getElementById('btnTema') || document.getElementById('btn-alternar-tema');
+    // Modo Alto Contraste
+    const btnTema = document.getElementById('btnTema');
     if (btnTema) {
         btnTema.addEventListener('click', () => {
             const temaAtual = document.documentElement.getAttribute('data-tema');
             if (temaAtual === 'dark') {
                 document.documentElement.removeAttribute('data-tema');
-                if(btnTema.tagName === "BUTTON") btnTema.textContent = "Alternar para Modo Escuro";
             } else {
                 document.documentElement.setAttribute('data-tema', 'dark');
-                if(btnTema.tagName === "BUTTON") btnTema.textContent = "Alternar para Modo Claro";
             }
         });
     }
 
+    // Leitura de Voz por API Nativa
     let leituraVozHabilitada = false;
     const btnToggleVoz = document.getElementById('btnToggleVoz');
 
@@ -163,19 +185,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     document.querySelectorAll('.texto-acessivel').forEach(elemento => {
-        elemento.addEventListener('mouseenter', () => {
+        const dispararLeitura = () => {
             if (!leituraVozHabilitada) return;
             removerFocosLeitura();
             elemento.classList.add('leitura-foco');
             falarTexto(elemento.innerText || elemento.textContent);
-        });
-        
-        elemento.addEventListener('click', () => {
-            if (!leituraVozHabilitada) return;
-            removerFocosLeitura();
-            elemento.classList.add('leitura-foco');
-            falarTexto(elemento.innerText || elemento.textContent);
-        });
+        };
+        elemento.addEventListener('mouseenter', dispararLeitura);
+        elemento.addEventListener('click', dispararLeitura);
     });
 
     window.ouvirTextoExclusivo = function(idElemento) {
@@ -184,37 +201,15 @@ document.addEventListener("DOMContentLoaded", function() {
         falarTexto(elemento.innerText || elemento.textContent);
     };
 
-    window.toggleAccordion = function(headerObjeto) {
-        const itemAtual = headerObjeto.parentElement;
-        itemAtual.classList.toggle('ativo');
-    };
-
-    window.toggleGlossarioInterno = function(event, elemento) {
-        event.stopPropagation();
-        elemento.classList.toggle('ativo');
-    };
-
-    const accordionHeadersOld = document.querySelectorAll(".accordion-header");
-    accordionHeadersOld.forEach(header => {
-        header.addEventListener("click", function() {
-            const item = this.parentElement;
-            item.classList.toggle("ativo");
-        });
-    });
-
-    const glossarioItemsOld = document.querySelectorAll(".glossario-item");
-    glossarioItemsOld.forEach(item => {
-        item.addEventListener("click", function() {
-            this.classList.toggle("ativo");
-        });
-    });
-
-    const btnCalcular = document.getElementById('btnCalcular') || document.querySelector(".botao-formulario");
+    // ==========================================
+    // 6. SIMULADOR HÍDRICO
+    // ==========================================
+    const btnCalcular = document.getElementById('btnCalcular');
     if (btnCalcular) {
         btnCalcular.addEventListener('click', () => {
-            const inputHectares = document.getElementById('hectares') || document.querySelector("input[type='number']");
-            const resultadoBox = document.getElementById('resultado') || document.querySelector(".resultado-box");
-            const textoResultado = document.getElementById('textoResultado') || resultadoBox;
+            const inputHectares = document.getElementById('hectares');
+            const resultadoBox = document.getElementById('resultado');
+            const textoResultado = document.getElementById('textoResultado');
 
             if (inputHectares && inputHectares.value > 0) {
                 const hectares = parseFloat(inputHectares.value);
@@ -225,6 +220,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // ==========================================
+    // 7. QUIZ INTERATIVO AGRINHO
+    // ==========================================
     const dadosQuiz = {
         pergunta: "Qual método assegura a longevidade ambiental e o ganho agrícola?",
         opcoes: ["A) Expansão de fronteiras com desmatamento.", "B) Monitoramento cirúrgico com sensores de precisão.", "C) Descontinuamento de toda tecnologia."],
@@ -240,31 +238,21 @@ document.addEventListener("DOMContentLoaded", function() {
             if(dadosQuiz.opcoes[idx]) {
                 botao.innerText = dadosQuiz.opcoes[idx];
             }
-            botao.setAttribute('data-index', idx);
         });
     }
 
     window.verificarResposta = function(indice) {
-        const fb = document.getElementById('feedback-quiz') || document.querySelector(".feedback-quiz"); 
+        const fb = document.getElementById('feedback-quiz'); 
         if(!fb) return;
         fb.classList.remove('hidden');
         if (indice === dadosQuiz.respostaCorreta) { 
             fb.innerText = "🎉 Resposta Exata!"; 
-            fb.className = "feedback-quiz correto"; 
+            fb.className = "correto"; 
         } else { 
             fb.innerText = "❌ Alternativa Errada."; 
-            fb.className = "feedback-quiz errado"; 
+            fb.className = "errado"; 
         }
     };
-
-    const botoesOpcaoQuiz = document.querySelectorAll(".btn-opcao");
-    botoesOpcaoQuiz.forEach(botao => {
-        botao.addEventListener("click", function() {
-            const idxAttr = this.getAttribute('data-index');
-            const idx = idxAttr !== null ? parseInt(idxAttr) : Array.from(this.parentNode.children).indexOf(this);
-            verificarResposta(idx);
-        });
-    });
 
     carregarQuiz();
 });
