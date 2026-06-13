@@ -64,5 +64,5 @@ Este projeto está licenciado sob a **Licença MIT**. Para mais detalhes, consul
 ├── index.html             # Estrutura principal da aplicação
 ├── style.css              # Toda a folha de estilos e variáveis de cores
 ├── script.js              # Mecanismos interativos e funções de acessibilidade
-├── LICENSE               # Licensa MIT do Projeto SustentaAgro
+├── LICENSE                # Licença MIT do Projeto SustentaAgro
 └── README.md              # Documentação oficial do projeto
