@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    /* ==========================================
+       LÓGICA DO CARROSSEL REFORMULADA (1376x768)
+       ========================================== */
     const trilho = document.getElementById('trilhoCarrossel');
     const slides = document.querySelectorAll('.carrossel-slide');
     const containerIndicadores = document.getElementById('indicadoresCarrossel');
@@ -19,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let intervaloCarrossel;
 
     if (trilho && containerIndicadores && totalSlides > 0) {
+        // Redefine a largura correta baseada no número dinâmico de slides
         trilho.style.width = `${totalSlides * 100}%`;
-        
         containerIndicadores.innerHTML = ""; 
 
         slides.forEach((_, idx) => {
@@ -48,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         function irParaSlide(indice) {
             slideIndice = indice;
+            // Divide o percentual corretamente pelo número total de elementos alocados no trilho
             trilho.style.transform = `translateX(-${(slideIndice * 100) / totalSlides}%)`;
             atualizarIndicadores();
         }
@@ -69,9 +73,10 @@ document.addEventListener("DOMContentLoaded", function() {
         irParaSlide(0);
         iniciarAutoplay();
     }
+    /* ========================================== */
 
-    const btnAbrirMenu = document.getElementById('btnAbrirMenu');
-    const painelAcessibilidade = document.getElementById('painelAcessibilidade');
+    const btnAbrirMenu = document.getElementById('btnAbrirMenu') || document.querySelector('.btn-floating-acessibilidade');
+    const painelAcessibilidade = document.getElementById('painelAcessibilidade') || document.querySelector('.menu-acessibilidade-painel');
 
     if (btnAbrirMenu && painelAcessibilidade) {
         btnAbrirMenu.addEventListener('click', (event) => {
@@ -89,15 +94,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     let tamanhoAtualFonte = 100;
-    const btnAumentar = document.getElementById('btnAumentarTexto');
-    const btnDiminuir = document.getElementById('btnDiminuirTexto');
+    const btnAumentar = document.getElementById('btnAumentarTexto') || document.getElementById('btnaumentar-fonte');
+    const btnDiminuir = document.getElementById('btnDiminuirTexto') || document.getElementById('btndiminuir-fonte');
     const btnReset = document.getElementById('btnResetTexto');
 
     if (btnAumentar) {
         btnAumentar.addEventListener('click', () => {
             if (tamanhoAtualFonte < 140) {
                 tamanhoAtualFonte += 10;
-                document.documentElement.style.setProperty('--tamanho-base', `${tamanhoAtualFonte}%`);
+                document.documentElement.style.setProperty('--tamanho-base', `${tamanhoAtualFonte / 100}rem`);
             }
         });
     }
@@ -106,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
         btnDiminuir.addEventListener('click', () => {
             if (tamanhoAtualFonte > 80) {
                 tamanhoAtualFonte -= 10;
-                document.documentElement.style.setProperty('--tamanho-base', `${tamanhoAtualFonte}%`);
+                document.documentElement.style.setProperty('--tamanho-base', `${tamanhoAtualFonte / 100}rem`);
             }
         });
     }
@@ -114,18 +119,20 @@ document.addEventListener("DOMContentLoaded", function() {
     if (btnReset) {
         btnReset.addEventListener('click', () => {
             tamanhoAtualFonte = 100;
-            document.documentElement.style.setProperty('--tamanho-base', '100%');
+            document.documentElement.style.setProperty('--tamanho-base', '1rem');
         });
     }
 
-    const btnTema = document.getElementById('btnTema');
+    const btnTema = document.getElementById('btnTema') || document.getElementById('btn-alternar-tema');
     if (btnTema) {
         btnTema.addEventListener('click', () => {
             const temaAtual = document.documentElement.getAttribute('data-tema');
             if (temaAtual === 'dark') {
                 document.documentElement.removeAttribute('data-tema');
+                if(btnTema.tagName === "BUTTON") btnTema.textContent = "Alternar para Modo Escuro";
             } else {
                 document.documentElement.setAttribute('data-tema', 'dark');
+                if(btnTema.tagName === "BUTTON") btnTema.textContent = "Alternar para Modo Claro";
             }
         });
     }
@@ -171,22 +178,48 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    window.ouvirTextoExclusivo = function(idElemento) {
+        const elemento = document.getElementById(idElemento);
+        if (!elemento) return;
+        falarTexto(elemento.innerText || elemento.textContent);
+    };
+
     window.toggleAccordion = function(headerObjeto) {
         const itemAtual = headerObjeto.parentElement;
         itemAtual.classList.toggle('ativo');
     };
 
-    const btnCalcular = document.getElementById('btnCalcular');
+    window.toggleGlossarioInterno = function(event, elemento) {
+        event.stopPropagation();
+        elemento.classList.toggle('ativo');
+    };
+
+    const accordionHeadersOld = document.querySelectorAll(".accordion-header");
+    accordionHeadersOld.forEach(header => {
+        header.addEventListener("click", function() {
+            const item = this.parentElement;
+            item.classList.toggle("ativo");
+        });
+    });
+
+    const glossarioItemsOld = document.querySelectorAll(".glossario-item");
+    glossarioItemsOld.forEach(item => {
+        item.addEventListener("click", function() {
+            this.classList.toggle("ativo");
+        });
+    });
+
+    const btnCalcular = document.getElementById('btnCalcular') || document.querySelector(".botao-formulario");
     if (btnCalcular) {
         btnCalcular.addEventListener('click', () => {
-            const inputHectares = document.getElementById('hectares');
-            const resultadoBox = document.getElementById('resultado');
-            const textoResultado = document.getElementById('textoResultado');
+            const inputHectares = document.getElementById('hectares') || document.querySelector("input[type='number']");
+            const resultadoBox = document.getElementById('resultado') || document.querySelector(".resultado-box");
+            const textoResultado = document.getElementById('textoResultado') || resultadoBox;
 
-            if (inputHectares && resultadoBox && textoResultado) {
+            if (inputHectares && inputHectares.value > 0) {
                 const hectares = parseFloat(inputHectares.value);
-                if (isNaN(hectares) || hectares <= 0) return;
-                textoResultado.innerHTML = `Simulação Pronta! Em <strong>${hectares} hectares</strong>, economiza-se <strong>${(hectares * 15000).toLocaleString('pt-BR')} litros</strong> de água por dia.`;
+                const economiaAgua = hectares * 15000;
+                textoResultado.innerHTML = `Simulação Pronta! Em <strong>${hectares} hectares</strong>, economiza-se aproximadamente <strong>${economiaAgua.toLocaleString('pt-BR')} litros</strong> de água por ciclo usando gotejamento inteligente.`;
                 resultadoBox.classList.remove('hidden');
             }
         });
@@ -204,25 +237,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (pQuiz) pQuiz.innerText = dadosQuiz.pergunta;
         botoesOpcao.forEach((botao, idx) => {
-            if (dadosQuiz.opcoes[idx]) {
+            if(dadosQuiz.opcoes[idx]) {
                 botao.innerText = dadosQuiz.opcoes[idx];
             }
-            botao.addEventListener('click', () => verificarResposta(idx));
+            botao.setAttribute('data-index', idx);
         });
     }
 
-    function verificarResposta(indice) {
-        const fb = document.getElementById('feedback-quiz'); 
-        if (!fb) return;
+    window.verificarResposta = function(indice) {
+        const fb = document.getElementById('feedback-quiz') || document.querySelector(".feedback-quiz"); 
+        if(!fb) return;
         fb.classList.remove('hidden');
         if (indice === dadosQuiz.respostaCorreta) { 
             fb.innerText = "🎉 Resposta Exata!"; 
-            fb.className = "correto"; 
+            fb.className = "feedback-quiz correto"; 
         } else { 
             fb.innerText = "❌ Alternativa Errada."; 
-            fb.className = "errado"; 
+            fb.className = "feedback-quiz errado"; 
         }
-    }
+    };
+
+    const botoesOpcaoQuiz = document.querySelectorAll(".btn-opcao");
+    botoesOpcaoQuiz.forEach(botao => {
+        botao.addEventListener("click", function() {
+            const idxAttr = this.getAttribute('data-index');
+            const idx = idxAttr !== null ? parseInt(idxAttr) : Array.from(this.parentNode.children).indexOf(this);
+            verificarResposta(idx);
+        });
+    });
 
     carregarQuiz();
 });
