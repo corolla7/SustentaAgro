@@ -9,12 +9,12 @@
 <body>
 
     <div class="acessibilidade-widget" id="widgetAcessibilidade">
-        <button class="btn-floating-acessibilidade" id="btnAbrirMenu" aria-label="Abrir opções de acessibilidade" aria-haspopup="true" aria-expanded="false">
+        <button class="btn-floating-acessibilidade" id="btnAbrirMenu" aria-label="Abrir opções de acessibilidade">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
                 <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
             </svg>
         </button>
-        <div class="menu-acessibilidade-painel hidden" id="painelAcessibilidade" role="menu">
+        <div class="menu-acessibilidade-painel hidden" id="painelAcessibilidade">
             <h3>Acessibilidade Digital</h3>
             <hr>
             <div class="opcao-menu-acessivel">
@@ -34,29 +34,29 @@
         </div>
     </div>
 
-    <header class="cabecalho" role="banner">
+    <header class="cabecalho">
         <div class="logo">🌱 SustentaAgro</div>
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="menu" id="menuPrincipal" aria-label="Menu principal">
+        <nav class="menu" id="menuPrincipal">
             <a href="#inicio">Início</a>
             <a href="#multimidia-secao">Multimídia</a>
-            <a href="#conteudo-dinamico">Painel Interativo</a>
+            <a href="#central-conhecimento">Painel Interativo</a>
             <a href="#calculadora">Simulador</a>
             <a href="#quiz">Quiz Agrinho</a>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
-        <div class="hero-conteudo animar-subir">
+        <div class="hero-conteudo">
             <span class="badge-tag">Agrinho</span>
             <h1>Agro Forte, Futuro Sustentável</h1>
             <p>Conectando a alta produtividade do campo paranaense com as metas globais de preservação ambiental e inteligência tecnológica.</p>
             <div class="botoes-hero">
-                <a href="#conteudo-dinamico" class="botao">Começar Exploração</a>
+                <a href="#central-conhecimento" class="botao">Começar Exploração</a>
                 <button class="btn-ouvir" onclick="ouvirTextoExclusivo('inicio-texto')">🔊 Ouvir Intro</button>
             </div>
             <span id="inicio-texto" class="sr-only">Agro Forte, Futuro Sustentável. Conectando a alta produtividade do campo paranaense com as metas globais de preservação ambiental e inteligência tecnológica.</span>
@@ -75,7 +75,6 @@
                 <div class="video-container-local">
                     <video controls preload="metadata">
                         <source src="videos/video.mp4" type="video/mp4">
-                        Seu navegador não suporta a tag de vídeo.
                     </video>
                 </div>
                 <div class="corpo-midia">
@@ -98,85 +97,108 @@
                 </div>
                 <div class="corpo-midia">
                     <h4>SustentaAgro em Quadrinhos</h4>
-                    <p>Uma aventura gráfica pedagógica traduzindo conceitos complexos de ESG e rotação de culturas de forma lúdica.</p>
+                    <p>Uma aventura gráfica pedagógica traduzindo conceitos complexos de ESG de forma lúdica.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <main id="conteudo-dinamico" class="secao-abas secao-alternada">
+    <main id="central-conhecimento" class="secao-alternada">
         <div class="container">
             <div class="text-center">
-                <h2 class="titulo-secao">Central de Conhecimento Integrado</h2>
-                <p class="subtitulo">Alterne entre as abas para navegar de forma rápida pelos pilares do projeto.</p>
+                <h2 class="titulo-secao">Central de Conhecimento</h2>
+                <p class="subtitulo">Clique nos painéis abaixo para expandir e explorar os conteúdos do projeto.</p>
             </div>
 
-            <div class="abas-navegacao-container" role="tablist">
-                <button class="aba-trigger ativa" role="tab" aria-selected="true" data-target="tab-metas">🎯 Metas e ODS</button>
-                <button class="aba-trigger" role="tab" aria-selected="false" data-target="tab-tecnologias">🛠️ Tecnologias</button>
-                <button class="aba-trigger" role="tab" aria-selected="false" data-target="tab-glossario">📖 Glossário Técnico</button>
-                <button class="aba-trigger" role="tab" aria-selected="false" data-target="tab-dados">📊 Estatísticas IBGE</button>
-            </div>
-
-            <div class="abas-conteudo-wrapper">
-                <div id="tab-metas" class="aba-conteudo ativa" role="tabpanel">
-                    <div class="topo-secao-acessivel">
-                        <h3>Nosso Propósito e Metas Globais</h3>
-                        <button class="btn-ouvir-secao" onclick="ouvirTextoExclusivo('conteudo-argumentos')">🔊 Ouvir Conteúdo</button>
-                    </div>
-                    <div class="argumentos-grid" id="conteudo-argumentos">
-                        <div class="argumento-texto">
-                            <h4>O Desafio: Produzir sem Destruir</h4>
-                            <p>O grande argumento da agricultura moderna é a <strong>otimização de recursos</strong>. Não precisamos desmatar novas áreas para alimentar a população; o segredo está em usar a tecnologia para extrair o máximo de cada hectare de forma limpa.</p>
+            <div class="accordion-container">
+                
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>🎯 Metas e ODS Globais</span>
+                        <span class="icon-seta">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="topo-secao-acessivel">
+                            <h3>Nosso Propósito e Metas Globais</h3>
+                            <button class="btn-ouvir-secao" onclick="ouvirTextoExclusivo('conteudo-argumentos')">🔊 Ouvir Conteúdo</button>
                         </div>
-                        <div class="ods-box">
-                            <h4>Indicadores de Progresso</h4>
-                            <div class="progresso-ods">
-                                <label>ODS 2: Eficiência da Agricultura Familiar</label>
-                                <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 75%;">75%</div></div>
+                        <div class="argumentos-grid" id="conteudo-argumentos">
+                            <div class="argumento-texto">
+                                <h4>O Desafio: Produzir sem Destruir</h4>
+                                <p>O grande argumento da agricultura moderna é a <strong>otimização de recursos</strong>. Não precisamos desmatar novas áreas para alimentar a população; o segredo está em usar a tecnologia para extrair o máximo de cada hectare de forma limpa.</p>
                             </div>
-                            <div class="progresso-ods">
-                                <label>ODS 12: Redução de Desperdício Hídrico</label>
-                                <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 60%;">60%</div></div>
+                            <div class="ods-box">
+                                <h4>Indicadores de Progresso</h4>
+                                <div class="progresso-ods">
+                                    <label>ODS 2: Eficiência da Agricultura Familiar</label>
+                                    <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 75%;">75%</div></div>
+                                </div>
+                                <div class="progresso-ods">
+                                    <label>ODS 12: Redução de Desperdício Hídrico</label>
+                                    <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 60%;">60%</div></div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="tab-tecnologias" class="aba-conteudo" role="tabpanel">
-                    <div class="cards-grid">
-                        <article class="card">
-                            <div class="card-numero">01</div>
-                            <div class="card-corpo">
-                                <h3>Gotejamento Inteligente</h3>
-                                <p>Irrigação automatizada controlada por sensores de umidade no solo.</p>
-                            </div>
-                        </article>
-                        <article class="card">
-                            <div class="card-numero">02</div>
-                            <div class="card-corpo">
-                                <h3>Drones e Visão Computacional</h3>
-                                <p>Sensores espectrais mapeiam deficiências de nitrogênio e focos de pragas.</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div id="tab-glossario" class="aba-conteudo" role="tabpanel">
-                    <div class="glossario-container">
-                        <div class="glossario-item" onclick="toggleGlossario(this)">
-                            <h4>O que é ESG no Campo? <span>+</span></h4>
-                            <p class="glossario-resposta">Critérios Ambientais, Sociais e de Governança aplicados ao setor agrícola.</p>
                         </div>
                     </div>
                 </div>
 
-                <div id="tab-dados" class="aba-conteudo" role="tabpanel">
-                    <div class="grafico-container">
-                        <div class="barra-grafico" style="--porcentagem: 68%;"><span>68%</span><label>Plantio Direto</label></div>
-                        <div class="barra-grafico" style="--porcentagem: 85%;"><span>85%</span><label>Manejo Integrado</label></div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>🛠️ Tecnologias Sustentáveis</span>
+                        <span class="icon-seta">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="cards-grid">
+                            <article class="card">
+                                <div class="card-numero">01</div>
+                                <div class="card-corpo">
+                                    <h3>Gotejamento Inteligente</h3>
+                                    <p>Irrigação automatizada controlada por sensores de umidade no solo que evitam o desperdício.</p>
+                                </div>
+                            </article>
+                            <article class="card">
+                                <div class="card-numero">02</div>
+                                <div class="card-corpo">
+                                    <h3>Drones e Visão Computacional</h3>
+                                    <p>Sensores espectrais mapeiam deficiências e focos de pragas para aplicação cirúrgica de insumos.</p>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                 </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>📖 Glossário Técnico</span>
+                        <span class="icon-seta">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="glossario-container">
+                            <div class="glossario-item" onclick="toggleGlossarioInterno(event, this)">
+                                <h4>O que é ESG no Campo? <span>+</span></h4>
+                                <p class="glossario-resposta">Critérios Ambientais, Sociais e de Governança aplicados para tornar a produção correta e transparente.</p>
+                            </div>
+                            <div class="glossario-item" onclick="toggleGlossarioInterno(event, this)">
+                                <h4>O que é Agricultura de Precisão? <span>+</span></h4>
+                                <p class="glossario-resposta">Uso de dados, satélites e sensores para gerenciar a lavoura metro a metro.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>📊 Estatísticas Oficiais IBGE</span>
+                        <span class="icon-seta">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="grafico-container">
+                            <div class="barra-grafico" style="--porcentagem: 68%;"><span>68%</span><label>Plantio Direto</label></div>
+                            <div class="barra-grafico" style="--porcentagem: 85%;"><span>85%</span><label>Manejo Integrado</label></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </main>
@@ -210,7 +232,7 @@
         </div>
     </section>
 
-    <footer class="rodape" role="contentinfo">
+    <footer class="rodape">
         <div class="footer-layout">
             
             <div class="selos-oficiais">
@@ -219,10 +241,10 @@
             </div>
 
             <div class="redes-sociais-footer">
-                <a href="https://github.com/SEU_USUARIO" target="_blank" class="btn-circular-social" title="Acesse o GitHub">
+                <a href="https://github.com/corolla7/SustentaAgro" target="_blank" class="btn-circular-social" title="Acesse o GitHub">
                     <img src="imagens/github_logo.png" alt="GitHub">
                 </a>
-                <a href="https://instagram.com/SEU_PERFIL" target="_blank" class="btn-circular-social" title="Siga no Instagram">
+                <a href="https://instagram.com/vinizd.7" target="_blank" class="btn-circular-social" title="Siga no Instagram">
                     <img src="imagens/instagram_logo.png" alt="Instagram">
                 </a>
             </div>
