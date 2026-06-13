@@ -53,8 +53,8 @@
     <section id="inicio" class="hero">
         <div class="hero-conteudo">
             <span class="badge-tag">Agrinho</span>
-            <h1>Agro Forte, Futuro Sustentável</h1>
-            <p>Conectando a alta produtividade do campo paranaense com as metas globais de preservação ambiental e inteligência tecnológica.</p>
+            <h1 class="texto-acessivel">Agro Forte, Futuro Sustentável</h1>
+            <p class="texto-acessivel">Conectando a alta produtividade do campo paranaense com as metas globais de preservação ambiental e inteligência tecnológica.</p>
             <div class="botoes-hero">
                 <a href="#central-conhecimento" class="botao">Começar Exploração</a>
                 <button class="btn-ouvir" onclick="ouvirTextoExclusivo('inicio-texto')">🔊 Ouvir Intro</button>
@@ -65,8 +65,8 @@
 
     <section id="multimidia-secao" class="container">
         <div class="text-center">
-            <h2 class="titulo-secao">Inovação e Recursos Digitais</h2>
-            <p class="subtitulo">Explore a narrativa do agro sustentável através de animações e arte sequencial.</p>
+            <h2 class="titulo-secao texto-acessivel">Inovação e Recursos Digitais</h2>
+            <p class="subtitulo texto-acessivel">Explore a narrativa do agro sustentável através de animações e arte sequencial.</p>
         </div>
 
         <div class="multimidia-grid">
@@ -78,8 +78,8 @@
                     </video>
                 </div>
                 <div class="corpo-midia">
-                    <h4>O Futuro do Campo</h4>
-                    <p>Animação conceitual simulando a harmonia entre maquinários automatizados e biomas preservados no Paraná.</p>
+                    <h4 class="texto-acessivel">O Futuro do Campo</h4>
+                    <p class="texto-acessivel">Animação conceitual simulando a harmonia entre maquinários automatizados e biomas preservados no Paraná.</p>
                 </div>
             </div>
 
@@ -96,8 +96,8 @@
                     </div>
                 </div>
                 <div class="corpo-midia">
-                    <h4>SustentaAgro em Quadrinhos</h4>
-                    <p>Uma aventura gráfica pedagógica traduzindo conceitos complexos de ESG de forma lúdica.</p>
+                    <h4 class="texto-acessivel">SustentaAgro em Quadrinhos</h4>
+                    <p class="texto-acessivel">Uma aventura gráfica pedagógica traduzindo conceitos complexos de ESG de forma lúdica.</p>
                 </div>
             </div>
         </div>
@@ -106,8 +106,8 @@
     <main id="central-conhecimento" class="secao-alternada">
         <div class="container">
             <div class="text-center">
-                <h2 class="titulo-secao">Central de Conhecimento</h2>
-                <p class="subtitulo">Clique nos painéis abaixo para expandir e explorar os conteúdos do projeto.</p>
+                <h2 class="titulo-secao texto-acessivel">Central de Conhecimento</h2>
+                <p class="subtitulo texto-acessivel">Clique nos painéis abaixo para expandir e explorar os conteúdos do projeto.</p>
             </div>
 
             <div class="accordion-container">
@@ -119,23 +119,29 @@
                     </button>
                     <div class="accordion-content">
                         <div class="topo-secao-acessivel">
-                            <h3>Nosso Propósito e Metas Globais</h3>
+                            <h3 class="texto-acessivel">Nosso Propósito e Metas Globais</h3>
                             <button class="btn-ouvir-secao" onclick="ouvirTextoExclusivo('conteudo-argumentos')">🔊 Ouvir Conteúdo</button>
                         </div>
                         <div class="argumentos-grid" id="conteudo-argumentos">
                             <div class="argumento-texto">
-                                <h4>O Desafio: Produzir sem Destruir</h4>
-                                <p>O grande argumento da agricultura moderna é a <strong>otimização de recursos</strong>. Não precisamos desmatar novas áreas para alimentar a população; o segredo está em usar a tecnologia para extrair o máximo de cada hectare de forma limpa.</p>
+                                <h4 class="texto-acessivel">O Desafio: Produzir sem Destruir</h4>
+                                <p class="texto-acessivel">O grande argumento da agricultura moderna é a <strong>otimização de recursos</strong>. Não precisamos desmatar novas áreas para alimentar a população; o segredo está em usar a tecnologia para extrair o máximo de cada hectare de forma limpa.</p>
+                                <div class="espaco-imagem-agro">
+                                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=500&q=80" alt="Plantação sustentável sob tecnologia">
+                                </div>
                             </div>
                             <div class="ods-box">
-                                <h4>Indicadores de Progresso</h4>
+                                <h4 class="texto-acessivel">Indicadores de Progresso</h4>
                                 <div class="progresso-ods">
-                                    <label>ODS 2: Eficiência da Agricultura Familiar</label>
+                                    <label class="texto-acessivel">ODS 2: Eficiência da Agricultura Familiar</label>
                                     <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 75%;">75%</div></div>
                                 </div>
                                 <div class="progresso-ods">
-                                    <label>ODS 12: Redução de Desperdício Hídrico</label>
+                                    <label class="texto-acessivel">ODS 12: Redução de Desperdício Hídrico</label>
                                     <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 60%;">60%</div></div>
+                                </div>
+                                <div class="espaco-imagem-agro">
+                                    <img src="https://images.unsplash.com/photo-1563514223300-b3b0d23f62f7?auto=format&fit=crop&w=500&q=80" alt="Irrigação de precisão no campo">
                                 </div>
                             </div>
                         </div>
@@ -152,15 +158,21 @@
                             <article class="card">
                                 <div class="card-numero">01</div>
                                 <div class="card-corpo">
-                                    <h3>Gotejamento Inteligente</h3>
-                                    <p>Irrigação automatizada controlada por sensores de umidade no solo que evitam o desperdício.</p>
+                                    <h3 class="texto-acessivel">Gotejamento Inteligente</h3>
+                                    <p class="texto-acessivel">Irrigação automatizada controlada por sensores de umidade no solo que evitam o desperdício.</p>
+                                    <div class="espaco-imagem-agro-card">
+                                        <img src="https://images.unsplash.com/photo-1463123081488-729f60cff356?auto=format&fit=crop&w=400&q=80" alt="Sensores de campo">
+                                    </div>
                                 </div>
                             </article>
                             <article class="card">
                                 <div class="card-numero">02</div>
                                 <div class="card-corpo">
-                                    <h3>Drones e Visão Computacional</h3>
-                                    <p>Sensores espectrais mapeiam deficiências e focos de pragas para aplicação cirúrgica de insumos.</p>
+                                    <h3 class="texto-acessivel">Drones e Visão Computacional</h3>
+                                    <p class="texto-acessivel">Sensores espectrais mapeiam deficiências e focos de pragas para aplicação cirúrgica de insumos.</p>
+                                    <div class="espaco-imagem-agro-card">
+                                        <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=400&q=80" alt="Drone sobrevoando lavoura">
+                                    </div>
                                 </div>
                             </article>
                         </div>
@@ -175,12 +187,12 @@
                     <div class="accordion-content">
                         <div class="glossario-container">
                             <div class="glossario-item" onclick="toggleGlossarioInterno(event, this)">
-                                <h4>O que é ESG no Campo? <span>+</span></h4>
-                                <p class="glossario-resposta">Critérios Ambientais, Sociais e de Governança aplicados para tornar a produção correta e transparente.</p>
+                                <h4 class="texto-acessivel">O que é ESG no Campo? <span>+</span></h4>
+                                <p class="glossario-resposta texto-acessivel">Critérios Ambientais, Sociais e de Governança aplicados para tornar a produção correta e transparente.</p>
                             </div>
                             <div class="glossario-item" onclick="toggleGlossarioInterno(event, this)">
-                                <h4>O que é Agricultura de Precisão? <span>+</span></h4>
-                                <p class="glossario-resposta">Uso de dados, satélites e sensores para gerenciar a lavoura metro a metro.</p>
+                                <h4 class="texto-acessivel">O que é Agricultura de Precisão? <span>+</span></h4>
+                                <p class="glossario-resposta texto-acessivel">Uso de dados, satélites e sensores para gerenciar a lavoura metro a metro.</p>
                             </div>
                         </div>
                     </div>
@@ -193,8 +205,8 @@
                     </button>
                     <div class="accordion-content">
                         <div class="grafico-container">
-                            <div class="barra-grafico" style="--porcentagem: 68%;"><span>68%</span><label>Plantio Direto</label></div>
-                            <div class="barra-grafico" style="--porcentagem: 85%;"><span>85%</span><label>Manejo Integrado</label></div>
+                            <div class="barra-grafico" style="--porcentagem: 68%;"><span>68%</span><label class="texto-acessivel">Plantio Direto</label></div>
+                            <div class="barra-grafico" style="--porcentagem: 85%;"><span>85%</span><label class="texto-acessivel">Manejo Integrado</label></div>
                         </div>
                     </div>
                 </div>
@@ -205,14 +217,14 @@
 
     <section id="calculadora" class="container">
         <div class="container-pequeno">
-            <h2>Simulador de Economia Hídrica</h2>
+            <h2 class="texto-acessivel">Simulador de Economia Hídrica</h2>
             <div class="formulario-box">
-                <label for="hectares">Área estimada para cultivo (em Hectares):</label>
+                <label for="hectares" class="texto-acessivel">Área estimada para cultivo (em Hectares):</label>
                 <input type="number" id="hectares" placeholder="Ex: 15" min="1">
                 <button id="btnCalcular" class="botao-formulario">Calcular Impacto</button>
             </div>
             <div id="resultado" class="resultado-box hidden">
-                <p id="textoResultado"></p>
+                <p id="textoResultado" class="texto-acessivel"></p>
             </div>
         </div>
     </section>
@@ -220,8 +232,8 @@
     <section id="quiz" class="secao-alternada">
         <div class="container">
             <div class="card-quiz">
-                <h2>Desafio Interativo 🌾</h2>
-                <p id="pergunta-quiz">Carregando pergunta...</p>
+                <h2 class="texto-acessivel">Desafio Interativo 🌾</h2>
+                <p id="pergunta-quiz" class="texto-acessivel">Carregando pergunta...</p>
                 <div class="opcoes-quiz">
                     <button class="btn-opcao" onclick="verificarResposta(0)">Opção A</button>
                     <button class="btn-opcao" onclick="verificarResposta(1)">Opção B</button>
@@ -238,6 +250,10 @@
             <div class="selos-oficiais">
                 <img src="imagens/governo_parana.png" alt="Logo Governo do Estado do Paraná" class="img-selo-oficial">
                 <img src="imagens/programacao_parana.png" alt="Logo Programação Paraná" class="img-selo-oficial">
+            </div>
+
+            <div class="creditos-unsplash text-center">
+                <p>Imagens ilustrativas por <a href="https://unsplash.com" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="redes-sociais-footer">
