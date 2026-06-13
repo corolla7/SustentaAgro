@@ -95,23 +95,44 @@ function toggleGlossarioInterno(event, elemento) {
     elemento.classList.toggle('ativo');
 }
 
-const paginasHQ = [
-    "imagens/hq_pagina1.png",
-    "imagens/hq_pagina2.png",
-    "imagens/hq_pagina3.png"
-];
-let indicePaginaAtual = 0;
+const trilho = document.getElementById('trilhoCarrossel');
+const slides = document.querySelectorAll('.carrossel-slide');
+const containerIndicadores = document.getElementById('indicadoresCarrossel');
+let slideIndice = 0;
+const totalSlides = slides.length;
 
-function mudarPaginaHQ(direcao) {
-    indicePaginaAtual += direcao;
-    if (indicePaginaAtual < 0) {
-        indicePaginaAtual = 0;
-    } else if (indicePaginaAtual >= paginasHQ.length) {
-        indicePaginaAtual = paginasHQ.length - 1;
-    }
-    document.getElementById("hqPagina").src = paginasHQ[indicePaginaAtual];
-    document.getElementById("hqContador").innerText = `Pág. ${indicePaginaAtual + 1}`;
+slides.forEach((_, idx) => {
+    const dot = document.createElement('div');
+    dot.classList.add('indicador');
+    if (idx === 0) dot.classList.add('ativo');
+    dot.addEventListener('click', () => irParaSlide(idx));
+    containerIndicadores.appendChild(dot);
+});
+
+const listaIndicadores = document.querySelectorAll('.indicador');
+
+function atualizarIndicadores() {
+    listaIndicadores.forEach((dot, idx) => {
+        if (idx === slideIndice) {
+            dot.classList.add('ativo');
+        } else {
+            dot.classList.remove('ativo');
+        }
+    });
 }
+
+function irParaSlide(indice) {
+    slideIndice = indice;
+    trilho.style.transform = `translateX(-${(slideIndice * 100) / totalSlides}%)`;
+    atualizarIndicadores();
+}
+
+function proximoSlideAutomatico() {
+    slideIndice = (slideIndice + 1) % totalSlides;
+    irParaSlide(slideIndice);
+}
+
+let intervaloCarrossel = setInterval(proximoSlideAutomatico, 4000);
 
 const menuToggle = document.getElementById('menuToggle');
 const menuPrincipal = document.getElementById('menuPrincipal');
