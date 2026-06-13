@@ -70,27 +70,40 @@ body {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    padding: 0.5rem 5%; /* Ajustado sutilmente para acomodar a logo de forma limpa */
+    padding: 0.6rem 5%; 
     position: sticky; 
     top: 0; 
     z-index: 2000; 
 }
 
 /* ==========================================
-   ESTILIZAÇÃO DA NOVA LOGO (599x417)
+   ALTERAÇÕES EXCLUSIVAS DA LOGO + TEXTO
    ========================================== */
-.logo-container {
-    display: flex;
-    align-items: center;
+.logo-container { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px;
 }
 
 .logo-site {
-    width: 599px;
-    height: 417px;
-    object-fit: contain; /* Impede a imagem de amassar ou esticar */
-    max-height: 65px;    /* Mantém a logo perfeitamente proporcional dentro do menu */
-    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 48px;
+    object-fit: contain;
     display: block;
+}
+
+.logo-texto {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    font-family: sans-serif;
+    transition: var(--transicao);
+}
+
+.logo-container:hover .logo-texto {
+    color: var(--bright-lemon);
 }
 /* ========================================== */
 
@@ -285,9 +298,6 @@ body {
     margin-bottom: 2.5rem; 
 }
 
-/* ==========================================
-   SISTEMA DE CARROSSEL REFORMULADO (1376x768)
-   ========================================== */
 .carrossel-automatico-container { 
     max-width: 900px; 
     margin: 0 auto 3rem auto; 
@@ -320,7 +330,6 @@ body {
     display: block;
     object-fit: contain; 
 }
-/* ========================================== */
 
 .carrossel-indicadores { 
     position: absolute; 
@@ -789,9 +798,14 @@ body {
 }
 
 @media (max-width: 768px) {
+    /* Ajuste da logo no Mobile */
     .logo-site {
-        max-height: 45px; /* Sutil redução de tamanho no celular para manter o layout compacto */
+        max-height: 38px;
     }
+    .logo-texto {
+        font-size: 1.15rem;
+    }
+    
     .menu-toggle { 
         display: flex; 
     }
