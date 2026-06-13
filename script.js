@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let intervaloCarrossel;
 
     if (trilho && containerIndicadores && totalSlides > 0) {
+        trilho.style.width = `${totalSlides * 100}%`;
+        
         containerIndicadores.innerHTML = ""; 
 
         slides.forEach((_, idx) => {
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         function irParaSlide(indice) {
             slideIndice = indice;
-            trilho.style.transform = `translateX(-${slideIndice * 100}%)`;
+            trilho.style.transform = `translateX(-${(slideIndice * 100) / totalSlides}%)`;
             atualizarIndicadores();
         }
 
@@ -64,11 +66,12 @@ document.addEventListener("DOMContentLoaded", function() {
             iniciarAutoplay();
         }
 
+        irParaSlide(0);
         iniciarAutoplay();
     }
 
-    const btnAbrirMenu = document.getElementById('btnAbrirMenu') || document.querySelector('.btn-floating-acessibilidade');
-    const painelAcessibilidade = document.getElementById('painelAcessibilidade') || document.querySelector('.menu-acessibilidade-painel');
+    const btnAbrirMenu = document.getElementById('btnAbrirMenu');
+    const painelAcessibilidade = document.getElementById('painelAcessibilidade');
 
     if (btnAbrirMenu && painelAcessibilidade) {
         btnAbrirMenu.addEventListener('click', (event) => {
@@ -86,15 +89,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     let tamanhoAtualFonte = 100;
-    const btnAumentar = document.getElementById('btnAumentarTexto') || document.getElementById('btnaumentar-fonte');
-    const btnDiminuir = document.getElementById('btnDiminuirTexto') || document.getElementById('btndiminuir-fonte');
+    const btnAumentar = document.getElementById('btnAumentarTexto');
+    const btnDiminuir = document.getElementById('btnDiminuirTexto');
     const btnReset = document.getElementById('btnResetTexto');
 
     if (btnAumentar) {
         btnAumentar.addEventListener('click', () => {
             if (tamanhoAtualFonte < 140) {
                 tamanhoAtualFonte += 10;
-                document.documentElement.style.setProperty('--tamanho-base', `${tamanhoAtualFonte / 100}rem`);
+                document.documentElement.style.setProperty('--tamanho-base', `${tamanhoAtualFonte}%`);
             }
         });
     }
@@ -103,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
         btnDiminuir.addEventListener('click', () => {
             if (tamanhoAtualFonte > 80) {
                 tamanhoAtualFonte -= 10;
-                document.documentElement.style.setProperty('--tamanho-base', `${tamanhoAtualFonte / 100}rem`);
+                document.documentElement.style.setProperty('--tamanho-base', `${tamanhoAtualFonte}%`);
             }
         });
     }
@@ -111,20 +114,18 @@ document.addEventListener("DOMContentLoaded", function() {
     if (btnReset) {
         btnReset.addEventListener('click', () => {
             tamanhoAtualFonte = 100;
-            document.documentElement.style.setProperty('--tamanho-base', '1rem');
+            document.documentElement.style.setProperty('--tamanho-base', '100%');
         });
     }
 
-    const btnTema = document.getElementById('btnTema') || document.getElementById('btn-alternar-tema');
+    const btnTema = document.getElementById('btnTema');
     if (btnTema) {
         btnTema.addEventListener('click', () => {
             const temaAtual = document.documentElement.getAttribute('data-tema');
             if (temaAtual === 'dark') {
                 document.documentElement.removeAttribute('data-tema');
-                if(btnTema.tagName === "BUTTON") btnTema.textContent = "Alternar para Modo Escuro";
             } else {
                 document.documentElement.setAttribute('data-tema', 'dark');
-                if(btnTema.tagName === "BUTTON") btnTema.textContent = "Alternar para Modo Claro";
             }
         });
     }
@@ -170,48 +171,22 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    window.ouvirTextoExclusivo = function(idElemento) {
-        const elemento = document.getElementById(idElemento);
-        if (!elemento) return;
-        falarTexto(elemento.innerText || elemento.textContent);
-    };
-
     window.toggleAccordion = function(headerObjeto) {
         const itemAtual = headerObjeto.parentElement;
         itemAtual.classList.toggle('ativo');
     };
 
-    window.toggleGlossarioInterno = function(event, elemento) {
-        event.stopPropagation();
-        elemento.classList.toggle('ativo');
-    };
-
-    const accordionHeadersOld = document.querySelectorAll(".accordion-header");
-    accordionHeadersOld.forEach(header => {
-        header.addEventListener("click", function() {
-            const item = this.parentElement;
-            item.classList.toggle("ativo");
-        });
-    });
-
-    const glossarioItemsOld = document.querySelectorAll(".glossario-item");
-    glossarioItemsOld.forEach(item => {
-        item.addEventListener("click", function() {
-            this.classList.toggle("ativo");
-        });
-    });
-
-    const btnCalcular = document.getElementById('btnCalcular') || document.querySelector(".botao-formulario");
+    const btnCalcular = document.getElementById('btnCalcular');
     if (btnCalcular) {
         btnCalcular.addEventListener('click', () => {
-            const inputHectares = document.getElementById('hectares') || document.querySelector("input[type='number']");
-            const resultadoBox = document.getElementById('resultado') || document.querySelector(".resultado-box");
-            const textoResultado = document.getElementById('textoResultado') || resultadoBox;
+            const inputHectares = document.getElementById('hectares');
+            const resultadoBox = document.getElementById('resultado');
+            const textoResultado = document.getElementById('textoResultado');
 
-            if (inputHectares && inputHectares.value > 0) {
+            if (inputHectares && resultadoBox && textoResultado) {
                 const hectares = parseFloat(inputHectares.value);
-                const economiaAgua = hectares * 15000;
-                textoResultado.innerHTML = `Simulação Pronta! Em <strong>${hectares} hectares</strong>, economiza-se aproximadamente <strong>${economiaAgua.toLocaleString('pt-BR')} litros</strong> de água por ciclo usando gotejamento inteligente.`;
+                if (isNaN(hectares) || hectares <= 0) return;
+                textoResultado.innerHTML = `Simulação Pronta! Em <strong>${hectares} hectares</strong>, economiza-se <strong>${(hectares * 15000).toLocaleString('pt-BR')} litros</strong> de água por dia.`;
                 resultadoBox.classList.remove('hidden');
             }
         });
@@ -229,34 +204,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (pQuiz) pQuiz.innerText = dadosQuiz.pergunta;
         botoesOpcao.forEach((botao, idx) => {
-            if(dadosQuiz.opcoes[idx]) {
+            if (dadosQuiz.opcoes[idx]) {
                 botao.innerText = dadosQuiz.opcoes[idx];
             }
-            botao.setAttribute('data-index', idx);
+            botao.addEventListener('click', () => verificarResposta(idx));
         });
     }
 
-    window.verificarResposta = function(indice) {
-        const fb = document.getElementById('feedback-quiz') || document.querySelector(".feedback-quiz"); 
-        if(!fb) return;
+    function verificarResposta(indice) {
+        const fb = document.getElementById('feedback-quiz'); 
+        if (!fb) return;
         fb.classList.remove('hidden');
         if (indice === dadosQuiz.respostaCorreta) { 
             fb.innerText = "🎉 Resposta Exata!"; 
-            fb.className = "feedback-quiz correto"; 
+            fb.className = "correto"; 
         } else { 
             fb.innerText = "❌ Alternativa Errada."; 
-            fb.className = "feedback-quiz errado"; 
+            fb.className = "errado"; 
         }
-    };
-
-    const botoesOpcaoQuiz = document.querySelectorAll(".btn-opcao");
-    botoesOpcaoQuiz.forEach(botao => {
-        botao.addEventListener("click", function() {
-            const idxAttr = this.getAttribute('data-index');
-            const idx = idxAttr !== null ? parseInt(idxAttr) : Array.from(this.parentNode.children).indexOf(this);
-            verificarResposta(idx);
-        });
-    });
+    }
 
     carregarQuiz();
 });
