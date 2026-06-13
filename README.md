@@ -52,7 +52,7 @@ O ecossistema do site foi projetado focando em performance, sem a dependência d
 
 ## ⚖️ Licença
 
-Este projeto está licenciado sob a **Licença MIT**. Para mais detalhes, consulte o ficheiro (LICENSE) incluído na raiz deste repositório.
+Este projeto está licenciado sob a **Licença MIT**. Para mais detalhes, consulte o ficheiro [LICENSE] incluído na raiz deste repositório.
 
 ---
 
@@ -64,5 +64,5 @@ Este projeto está licenciado sob a **Licença MIT**. Para mais detalhes, consul
 ├── index.html             # Estrutura principal da aplicação
 ├── style.css              # Toda a folha de estilos e variáveis de cores
 ├── script.js              # Mecanismos interativos e funções de acessibilidade
-├── LICENSE              # Licensa MIT do Projeto SustentaAgro
+├── LICENSE               # Licensa MIT do Projeto SustentaAgro
 └── README.md              # Documentação oficial do projeto
