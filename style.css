@@ -518,14 +518,19 @@ body {
     display: block; 
 }
 
+/* ==========================================================================
+   GRAFICO ESTATÍSTICAS IBGE (AJUSTADO PARA RESPONSIVIDADE E ACESSIBILIDADE)
+   ========================================================================== */
 .grafico-container { 
     display: flex; 
     justify-content: space-around; 
     align-items: flex-end; 
-    height: 200px; 
+    height: 240px;                   /* Altura controlada de forma segura */
     background-color: var(--cor-fundo); 
-    padding: 1.5rem; 
+    padding: 1.5rem 1.5rem 3.5rem 1.5rem; /* Margem inferior estendida para abrigar os labels sem vazar */
     border-radius: 8px; 
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .barra-grafico { 
@@ -540,16 +545,42 @@ body {
     color: #ffffff; 
     font-weight: 700; 
     position: relative; 
+    transition: background-color 0.3s ease, height 0.5s ease;
 }
 
 .barra-grafico label { 
     position: absolute; 
-    bottom: -28px; 
+    bottom: -35px;                   /* Deslocamento seguro dentro da área do padding inferior */
     color: var(--cor-texto); 
     font-weight: 600; 
-    font-size: 0.8rem; 
+    font-size: 0.85rem; 
     white-space: nowrap; 
+    transition: color 0.3s ease;
 }
+
+/* ==========================================================================
+   INTERAÇÕES DE ALTO CONTRASTE / TEMA ESCURO PARA O GRÁFICO
+   ========================================================================== */
+[data-tema="dark"] .grafico-container,
+body.contraste .grafico-container,
+body.alto-contraste .grafico-container {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-tema="dark"] .barra-grafico,
+body.contraste .barra-grafico,
+body.alto-contraste .barra-grafico { 
+    background: var(--bright-lemon) !important; /* Muda a barra para Amarelo-Limão brilhante */
+    color: #000000 !important;                  /* Número interno fica preto para dar contraste */
+}
+
+[data-tema="dark"] .barra-grafico label,
+body.contraste .barra-grafico label,
+body.alto-contraste .barra-grafico label {
+    color: var(--cor-texto) !important;        /* Força a legenda a assumir a cor clara do tema ativo */
+}
+/* ========================================================================== */
 
 .formulario-box { 
     background-color: var(--cor-fundo-card); 
@@ -835,13 +866,14 @@ body {
         font-size: 2rem; 
     }
     .grafico-container { 
-        height: 200px; 
+        height: 240px;                 /* Ajuste de respiro consistente no mobile */
+        padding-bottom: 3.5rem;
     }
     .barra-grafico { 
         width: 45px; 
     }
     .barra-grafico label { 
-        font-size: 0.7rem; 
+        font-size: 0.75rem; 
         bottom: -35px; 
     }
     .footer-layout { 
