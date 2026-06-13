@@ -1,52 +1,61 @@
-# 🌾 SustentaAgro
+<p align="center">
+  <img src="imagens/logo_2.png" alt="Logo SustentaAgro" width="400">
+</p>
 
-> Projeto focado em tecnologia e sustentabilidade no campo para o **Concurso Agrinho 2026**, desenvolvido com os conteúdos da **Alura**.
+# 🌾 SustentaAgro — Concurso Agrinho
 
-O **SustentaAgro** é uma aplicação web interativa projetada para conscientizar estudantes, produtores rurais e a comunidade sobre a importância da agricultura de precisão e das práticas sustentáveis no Paraná, alinhando a alta produtividade às metas globais da ONU.
+> **Projeto idealizado e desenvolvido para o Concurso Agrinho, unindo inovação tecnológica, conscientização ecológica e as diretrizes globais de sustentabilidade no campo.**
+
+O **SustentaAgro** é uma plataforma digital interativa concebida com o objetivo de traduzir conceitos complexos de sustentabilidade, critérios **ESG** (*Environmental, Social, and Governance*) e **Agricultura de Precisão** em uma linguagem lúdica, acessível e pedagógica para a comunidade escolar e produtores rurais.
+
+---
+
+## 🧑‍💻 Autoria e Realização
+
+* **Idealizado e Desenvolvido por:** Vinicius Aparecido Barbosa
+* **Instituição:** Colégio Estadual Enira Moraes Ribeiro
+* **Localidade:** Paranavaí / PR
+* **E-mail Escolar para Contato:** [vinicius.aparecido.barbosa@escola.pr.gov.br](mailto:vinicius.aparecido.barbosa@escola.pr.gov.br)
 
 ---
 
 ## 🚀 Funcionalidades Principais
 
-* **Acessibilidade Digital Universal:** Um widget flutuante moderno (com ícone universal inclusivo) que oferece:
-    * Sintetizador de voz neural humano (removendo o tom robótico).
-    * Ajuste fluído de fonte (método REM seguro que não quebra o layout).
-    * Contraste de cores inteligente.
-* **Simulador de Economia Hídrica:** Ferramenta interativa que calcula a economia diária de água ao adotar o gotejamento inteligente com base na área inserida.
-* **Glossário Acadêmico:** Painel interativo estilo *accordion* para explicar termos complexos como ESG, Crédito de Carbono e Agricultura de Precisão.
-* **Estatísticas Visuais:** Gráficos responsivos criados puramente com CSS que traduzem os dados reais do Censo Agropecuário do IBGE no Paraná.
-* **Gamificação (Desafio Quiz):** Um quiz interativo para testar os conhecimentos adquiridos sobre sustentabilidade e ODS.
+A plataforma conta com uma série de recursos dinâmicos construídos para engajar o usuário do início ao fim da navegação:
+
+1.  **🎬 Produção Cinemática & HQ Digital:** Central multimídia que reúne animações e uma História em Quadrinhos pedagógica exclusiva focada nas transformações e boas práticas do agronegócio moderno.
+2.  **📊 Central de Conhecimento (Accordion):** Painéis interativos organizados para apresentar de forma limpa as Metas e ODS Globais, Tecnologias Sustentáveis (como gotejamento inteligente e drones) e dados estatísticos oficiais do IBGE.
+3.  **🧮 Simulador de Economia Hídrica:** Uma ferramenta algorítmica onde o usuário insere a área estimada para cultivo (em Hectares) e calcula instantaneamente o impacto positivo e o volume de água preservado com técnicas modernas.
+4.  **🎮 Quiz Agrinho:** Um jogo de perguntas e respostas dinâmico focado em fixar os conceitos de sustentabilidade e ganho agrícola explorados no site.
 
 ---
 
-## 🎨 Identidade Visual e Cores
+## ♿ Acessibilidade Digital Integrada
 
-O projeto utiliza uma paleta de cores moderna extraída diretamente do *Coolors*, focada na estética do agro sustentável e otimizada para o Modo Claro e Modo Escuro:
-
-| Cor | Código Hex | Função no Sistema |
-| :--- | :--- | :--- |
-| **Evergreen** | `#19381F` | Cor primária, cabeçalho e elementos principais |
-| **Bright Lemon** | `#EEE82C` | Destaques, botões de ação e foco |
-| **Yellow Green** | `#91CB3E` | Barras de progresso e transições de hover |
-| **Medium Jungle** | `#53A548` | Elementos de suporte e bordas ativas |
-| **Sea Green** | `#4C934C` | Divisores e fundos suaves |
+O projeto foi construído sob uma forte premissa de **inclusão social e acessibilidade**, contando com um widget flutuante exclusivo que oferece:
+* **🔊 Leitura por Voz (Text-to-Speech):** Sintetizador de voz nativo em JavaScript para narrar blocos textuais específicos e introduções, auxiliando deficientes visuais ou leitores em fase de alfabetização.
+* **🔎 Ajuste Dinâmico de Fonte:** Controle em tempo real do tamanho do texto (Aumentar, Resetar e Diminuir) sem quebrar o layout da página.
+* **🌓 Alternância de Contraste:** Suporte a um modo de alto contraste para garantir conforto visual e legibilidade a usuários com baixa visão ou daltonismo.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-O projeto foi construído utilizando tecnologias web puras (Vanilla), priorizando performance e leveza:
+O ecossistema do site foi projetado focando em performance, sem a dependência de frameworks pesados, garantindo carregamento rápido e total adaptabilidade para dispositivos móveis (Design Responsivo):
 
-* **HTML5:** Estruturação semântica e tags de acessibilidade ARIA.
-* **CSS3:** Layouts modernos com *Grid* e *Flexbox*, além de variáveis CSS (`:root`) para controle do tema escuro.
-* **JavaScript (ES6):** Manipulação dinâmica do DOM, API de Síntese de Voz (`SpeechSynthesis`) e lógica de cálculo do simulador.
+* **HTML5:** Estruturação semântica e acessível (com marcações `aria-label` e classes específicas de leitores de tela).
+* **CSS3:** Estilização moderna, variáveis de ambiente para o modo contraste, layouts baseados em *Flexbox* / *Grid* e animações suaves de transição.
+* **JavaScript (Vanilla):** Lógica do simulador hídrico, carrossel de imagens automatizado, sistema do Quiz, expansão dos blocos do *accordion* e motor de acessibilidade por voz.
+* **Inteligência Artificial (Canva AI & Nano Banana 2):** Utilizada estritamente no suporte ao desenvolvimento e refinamento de elementos gráficos e identidade visual do projeto.
 
 ---
 
 ## 📂 Estrutura do Repositório
 
 ```text
-├── index.html          # Página principal com a estrutura semântica do projeto
-├── style.css           # Estilizações gerais, responsividade e variáveis de tema
-├── script.js           # Mecanismos de acessibilidade, quiz, simulador e animações
-└── README.md           # Documentação oficial do projeto
+├── imagens/               # Logotipos, slides do carrossel e páginas da HQ
+├── videos/                # Vídeo cinemática institucional (.mp4)
+├── index.html             # Estrutura principal da aplicação
+├── style.css              # Toda a folha de estilos e variáveis de cores
+├── script.js              # Mecanismos interativos e funções de acessibilidade
+└── README.md              # Documentação oficial do projeto
