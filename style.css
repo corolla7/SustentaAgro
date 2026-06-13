@@ -70,17 +70,29 @@ body {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    padding: 1.2rem 5%; 
+    padding: 0.5rem 5%; /* Ajustado sutilmente para acomodar a logo de forma limpa */
     position: sticky; 
     top: 0; 
     z-index: 2000; 
 }
 
-.logo { 
-    font-size: 1.4rem; 
-    font-weight: 700; 
-    color: #ffffff; 
+/* ==========================================
+   ESTILIZAÇÃO DA NOVA LOGO (599x417)
+   ========================================== */
+.logo-container {
+    display: flex;
+    align-items: center;
 }
+
+.logo-site {
+    width: 599px;
+    height: 417px;
+    object-fit: contain; /* Impede a imagem de amassar ou esticar */
+    max-height: 65px;    /* Mantém a logo perfeitamente proporcional dentro do menu */
+    max-width: 100%;
+    display: block;
+}
+/* ========================================== */
 
 .menu { 
     display: flex; 
@@ -777,6 +789,9 @@ body {
 }
 
 @media (max-width: 768px) {
+    .logo-site {
+        max-height: 45px; /* Sutil redução de tamanho no celular para manter o layout compacto */
+    }
     .menu-toggle { 
         display: flex; 
     }
