@@ -3,260 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SustentaAgro - Concurso Agrinho</title>
+    <title>SustentaAgro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="acessibilidade-widget" id="widgetAcessibilidade">
-        <button class="btn-floating-acessibilidade" id="btnAbrirMenu" aria-label="Abrir opções de acessibilidade">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
-                <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
-            </svg>
-        </button>
-        <div class="menu-acessibilidade-painel hidden" id="painelAcessibilidade">
-            <h3>Acessibilidade Digital</h3>
-            <hr>
-            <div class="opcao-menu-acessivel">
-                <button id="btnToggleVoz" class="btn-acao-acessivel">🔊 Ativar Leitura por Voz</button>
-            </div>
-            <div class="opcao-menu-acessivel">
-                <p>Tamanho do Texto:</p>
-                <div class="grupo-botoes-fonte">
-                    <button id="btnAumentarTexto" class="btn-fonte-ajuste" title="Aumentar Fonte">A+</button>
-                    <button id="btnResetTexto" class="btn-fonte-ajuste" title="Resetar Fonte">A</button>
-                    <button id="btnDiminuirTexto" class="btn-fonte-ajuste" title="Diminuir Fonte">A-</button>
-                </div>
-            </div>
-            <div class="opcao-menu-acessivel">
-                <button id="btnTema" class="btn-acao-acessivel">🌓 Alternar Contraste</button>
-            </div>
-        </div>
-    </div>
-
     <header class="cabecalho">
-        <div class="logo">🌱 SustentaAgro</div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação">
+        <div class="logo">SustentaAgro</div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
         <nav class="menu" id="menuPrincipal">
             <a href="#inicio">Início</a>
-            <a href="#multimidia-secao">Multimídia</a>
-            <a href="#central-conhecimento">Painel Interativo</a>
-            <a href="#calculadora">Simulador</a>
-            <a href="#quiz">Quiz Agrinho</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#tecnologia">Tecnologia</a>
+            <a href="#simulador">Simulador</a>
+            <a href="#quiz">Quiz</a>
         </nav>
     </header>
 
-    <section id="inicio" class="hero">
-        <div class="hero-conteudo">
-            <span class="badge-tag">Agrinho</span>
-            <h1 class="texto-acessivel">Agro Forte, Futuro Sustentável</h1>
-            <p class="texto-acessivel">Conectando a alta produtividade do campo paranaense com as metas globais de preservação ambiental e inteligência tecnológica.</p>
-            <div class="botoes-hero">
-                <a href="#central-conhecimento" class="botao">Começar Exploração</a>
-                <button class="btn-ouvir" onclick="ouvirTextoExclusivo('inicio-texto')">🔊 Ouvir Intro</button>
-            </div>
-            <span id="inicio-texto" class="sr-only">Agro Forte, Futuro Sustentável. Conectando a alta produtividade do campo paranaense com as metas globais de preservação ambiental e inteligência tecnológica.</span>
-        </div>
-    </section>
-
-    <section id="multimidia-secao" class="container">
-        <div class="text-center">
-            <h2 class="titulo-secao texto-acessivel">Inovação e Recursos Digitais</h2>
-            <p class="subtitulo texto-acessivel">Explore a narrativa do agro sustentável através de animações e arte sequencial.</p>
-        </div>
-
-        <div class="multimidia-grid">
-            <div class="midia-box">
-                <div class="topo-midia">🎬 Produção Cinemática</div>
-                <div class="video-container-local">
-                    <video controls preload="metadata">
-                        <source src="videos/video.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="corpo-midia">
-                    <h4 class="texto-acessivel">O Futuro do Campo</h4>
-                    <p class="texto-acessivel">Animação conceitual simulando a harmonia entre maquinários automatizados e biomas preservados no Paraná.</p>
+    <main>
+        <section class="hero" id="inicio">
+            <div class="badge-tag">Sustentabilidade & Tecnologia</div>
+            <div class="hero-conteudo">
+                <h1>SustentaAgro</h1>
+                <p>O futuro da agricultura sustentável moldado por dados, inteligência artificial e preservação ambiental.</p>
+                <div class="botoes-hero">
+                    <a href="#simulador" class="botao">Testar Simulador</a>
+                    <button class="btn-ouvir" id="btnToggleVoz">🔊 Ativar Leitura por Voz</button>
                 </div>
             </div>
+        </section>
 
-            <div class="midia-box">
-                <div class="topo-midia">📚 História em Quadrinhos</div>
-                <div class="hq-viewer-local">
-                    <div class="hq-slide-unico">
-                        <img src="imagens/hq_pagina1.png" alt="História em Quadrinhos SustentaAgro">
-                    </div>
-                </div>
-                <div class="corpo-midia">
-                    <h4 class="texto-acessivel">SustentaAgro em Quadrinhos</h4>
-                    <p class="texto-acessivel">Uma aventura gráfica pedagógica traduzindo conceitos complexos de ESG de forma lúdica.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <main id="central-conhecimento" class="secao-alternada">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="titulo-secao texto-acessivel">Central de Conhecimento</h2>
-                <p class="subtitulo texto-acessivel">Clique nos painéis abaixo para expandir e explorar os conteúdos do projeto.</p>
-            </div>
-
-            <div class="carrossel-automatico-container">
-                <div class="carrossel-trilho" id="trilhoCarrossel">
-                    <div class="carrossel-slide"><img src="imagens/carrossel1.png" alt="Slide IA 1"></div>
-                    <div class="carrossel-slide"><img src="imagens/carrossel2.png" alt="Slide IA 2"></div>
-                    <div class="carrossel-slide"><img src="imagens/carrossel3.png" alt="Slide IA 3"></div>
-                </div>
-                <div class="carrossel-indicadores" id="indicadoresCarrossel"></div>
-            </div>
-
-            <div class="accordion-container">
+        <section class="secao-alternada">
+            <div class="container text-center">
+                <h2 class="texto-acessivel">Tecnologia em Ação</h2>
+                <p class="subtitulo texto-acessivel">Acompanhe de perto as inovações que transformam o campo brasileiro diariamente.</p>
                 
-                <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <span>🎯 Metas e ODS Globais</span>
-                        <span class="icon-seta">▼</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="topo-secao-acessivel">
-                            <h3 class="texto-acessivel">Nosso Propósito e Metas Globais</h3>
-                            <button class="btn-ouvir-secao" onclick="ouvirTextoExclusivo('conteudo-argumentos')">🔊 Ouvir Conteúdo</button>
+                <div class="carrossel-automatico-container">
+                    <div class="carrossel-trilho" id="trilhoCarrossel">
+                        <div class="carrossel-slide">
+                            <img src="carrossel1.png" alt="Drone mapeando plantação inteligente com visão computacional">
                         </div>
-                        <div class="argumentos-grid" id="conteudo-argumentos">
-                            <div class="argumento-texto">
-                                <h4 class="texto-acessivel">O Desafio: Produzir sem Destruir</h4>
-                                <p class="texto-acessivel">O grande argumento da agricultura moderna é a <strong>otimização de recursos</strong>. Não precisamos desmatar novas áreas para alimentar a população; o segredo está em usar a tecnologia para extrair o máximo de cada hectare de forma limpa.</p>
-                            </div>
-                            <div class="ods-box">
-                                <h4 class="texto-acessivel">Indicadores de Progresso</h4>
-                                <div class="progresso-ods">
-                                    <label class="texto-acessivel">ODS 2: Eficiência da Agricultura Familiar</label>
-                                    <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 75%;">75%</div></div>
-                                </div>
-                                <div class="progresso-ods">
-                                    <label class="texto-acessivel">ODS 12: Redução de Desperdício Hídrico</label>
-                                    <div class="barra-progresso-fundo"><div class="barra-progresso-cheia" style="width: 60%;">60%</div></div>
-                                </div>
-                            </div>
+                        <div class="carrossel-slide">
+                            <img src="carrossel2.png" alt="Sistema de gotejamento subterrâneo monitorado em tempo real">
+                        </div>
+                        <div class="carrossel-slide">
+                            <img src="carrossel3.png" alt="Matriz de painéis solares fornecendo energia limpa ao campo">
                         </div>
                     </div>
+                    <div class="carrossel-indicadores" id="indicadoresCarrossel"></div>
                 </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <span>🛠️ Tecnologias Sustentáveis</span>
-                        <span class="icon-seta">▼</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="cards-grid">
-                            <article class="card">
-                                <div class="card-numero">01</div>
-                                <div class="card-corpo">
-                                    <h3 class="texto-acessivel">Gotejamento Inteligente</h3>
-                                    <p class="texto-acessivel">Irrigação automatizada controlada por sensores de umidade no solo que evitam o desperdício.</p>
-                                </div>
-                            </article>
-                            <article class="card">
-                                <div class="card-numero">02</div>
-                                <div class="card-corpo">
-                                    <h3 class="texto-acessivel">Drones e Visão Computacional</h3>
-                                    <p class="texto-acessivel">Sensores espectrais mapeiam deficiências e focos de pragas para aplicação cirúrgica de insumos.</p>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <span>📖 Glossário Técnico</span>
-                        <span class="icon-seta">▼</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="glossario-container">
-                            <div class="glossario-item" onclick="toggleGlossarioInterno(event, this)">
-                                <h4 class="texto-acessivel">O que é ESG no Campo? <span>+</span></h4>
-                                <p class="glossario-resposta texto-acessivel">Critérios Ambientais, Sociais e de Governança aplicados para tornar a produção correta e transparente.</p>
-                            </div>
-                            <div class="glossario-item" onclick="toggleGlossarioInterno(event, this)">
-                                <h4 class="texto-acessivel">O que é Agricultura de Precisão? <span>+</span></h4>
-                                <p class="glossario-resposta texto-acessivel">Uso de dados, satélites e sensores para gerenciar a lavoura metro a metro.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <span>📊 Estatísticas Oficiais IBGE</span>
-                        <span class="icon-seta">▼</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="grafico-container">
-                            <div class="barra-grafico" style="--porcentagem: 68%;"><span>68%</span><label class="texto-acessivel">Plantio Direto</label></div>
-                            <div class="barra-grafico" style="--porcentagem: 85%;"><span>85%</span><label class="texto-acessivel">Manejo Integrado</label></div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </div>
+        </section>
+
+        <section class="container">
+            <div class="argumentos-grid">
+                <div>
+                    <h3 class="texto-acessivel">Inovação e Compromisso</h3>
+                    <p class="texto-acessivel">O projeto SustentaAgro implementa metodologias ativas que auxiliam o produtor rural no controle rigoroso de recursos, combinando automação com práticas ecológicas de preservação florestal.</p>
+                    <div class="accordion-container" style="margin-top: 1.5rem;">
+                        <div class="accordion-item">
+                            <button class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>Sensores IoT de Precisão</span>
+                                <span class="icon-seta">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Dispositivos de última geração analisam as propriedades químicas e de umidade do solo a cada segundo, mandando alertas automáticos para as centrais de controle.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>Algoritmos de IA Preditiva</span>
+                                <span class="icon-seta">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Cruzamento de dados meteorológicos históricos para antecipar períodos de seca rigorosa e ajustar o cronograma de plantio de forma cirúrgica.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ods-box">
+                    <h4 class="texto-acessivel">Alinhamento com as ODS da ONU</h4>
+                    <div class="progresso-ods" style="margin-top: 1rem;">
+                        <p style="font-size:0.85rem; font-weight:600;">ODS 6: Água Potável e Saneamento</p>
+                        <div class="barra-progresso-fundo">
+                            <div class="barra-progresso-cheia" style="width: 75%;">75%</div>
+                        </div>
+                    </div>
+                    <div class="progresso-ods">
+                        <p style="font-size:0.85rem; font-weight:600;">ODS 13: Ação Contra a Mudança Global do Clima</p>
+                        <div class="barra-progresso-fundo">
+                            <div class="barra-progresso-cheia" style="width: 80%;">80%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-alternada" id="simulador">
+            <div class="container-pequeno">
+                <h3 class="text-center texto-acessivel">Simulador de Economia Hídrica</h3>
+                <div class="formulario-box">
+                    <label for="hectares" style="font-weight: 700; font-size: 0.9rem;">Área de Cultivo (Hectares):</label>
+                    <input type="number" id="hectares" placeholder="Digite a quantidade de hectares..." min="1">
+                    <button type="button" class="botao-formulario" id="btnCalcular">Efetuar Cálculo Computacional</button>
+                    <div id="resultado" class="resultado-box hidden">
+                        <p id="textoResultado"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" id="quiz">
+            <div class="container-pequeno">
+                <div class="card-quiz">
+                    <h3 class="texto-acessivel" id="pergunta-quiz">Carregando Pergunta...</h3>
+                    <div class="opcoes-quiz">
+                        <button class="btn-opcao"></button>
+                        <button class="btn-opcao"></button>
+                        <button class="btn-opcao"></button>
+                    </div>
+                    <div id="feedback-quiz" class="hidden"></div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <section id="calculadora" class="container">
-        <div class="container-pequeno">
-            <h2 class="texto-acessivel">Simulador de Economia Hídrica</h2>
-            <div class="formulario-box">
-                <label for="hectares" class="texto-acessivel">Área estimada para cultivo (em Hectares):</label>
-                <input type="number" id="hectares" placeholder="Ex: 15" min="1">
-                <button id="btnCalcular" class="botao-formulario">Calcular Impacto</button>
-            </div>
-            <div id="resultado" class="resultado-box hidden">
-                <p id="textoResultado" class="texto-acessivel"></p>
-            </div>
-        </div>
-    </section>
-
-    <section id="quiz" class="secao-alternada">
-        <div class="container">
-            <div class="card-quiz">
-                <h2 class="texto-acessivel">Desafio Interativo 🌾</h2>
-                <p id="pergunta-quiz" class="texto-acessivel">Carregando pergunta...</p>
-                <div class="opcoes-quiz">
-                    <button class="btn-opcao" onclick="verificarResposta(0)">Opção A</button>
-                    <button class="btn-opcao" onclick="verificarResposta(1)">Opção B</button>
-                    <button class="btn-opcao" onclick="verificarResposta(2)">Opção C</button>
+    <div class="acessibilidade-widget">
+        <div class="menu-acessibilidade-painel hidden" id="painelAcessibilidade">
+            <div class="opcao-menu-acessivel">
+                <p>Tamanho do Texto</p>
+                <div class="grupo-botoes-fonte">
+                    <button class="btn-fonte-ajuste" id="btnAumentarTexto">A+</button>
+                    <button class="btn-fonte-ajuste" id="btnDiminuirTexto">A-</button>
+                    <button class="btn-fonte-ajuste" id="btnResetTexto">Reset</button>
                 </div>
-                <div id="feedback-quiz" class="hidden"></div>
             </div>
+            <button class="btn-acao-acessivel" id="btnTema">Alternar Modo Escuro</button>
         </div>
-    </section>
+        <button class="btn-floating-acessibilidade" id="btnAbrirMenu" aria-label="Menu de Acessibilidade">♿</button>
+    </div>
 
     <footer class="rodape">
         <div class="footer-layout">
-            
-            <div class="selos-oficiais">
-                <img src="imagens/governo_parana.png" alt="Logo Governo do Estado do Paraná" class="img-selo-oficial">
-                <img src="imagens/programacao_parana.png" alt="Logo Programação Paraná" class="img-selo-oficial">
+            <div class="creditos-tecnologia">
+                <p>© 2026 SustentaAgro. Desenvolvimento Científico e Tecnológico Sustentável Aplicado.</p>
             </div>
-
-            <div class="creditos-tecnologia text-center">
-                <p>Elementos visuais desenvolvidos via inteligência artificial com suporte técnico das tecnologias Nano Banana e Veo 3.</p>
-            </div>
-
-            <div class="redes-sociais-footer">
-                <a href="https://github.com/corolla7/SustentaAgro" target="_blank" class="btn-circular-social" title="Acesse o GitHub">
-                    <img src="imagens/github_logo.png" alt="GitHub">
-                </a>
-                <a href="https://instagram.com/vinizd.7" target="_blank" class="btn-circular-social" title="Siga no Instagram">
-                    <img src="imagens/instagram_logo.png" alt="Instagram">
-                </a>
-            </div>
-
         </div>
     </footer>
 
