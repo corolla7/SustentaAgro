@@ -281,7 +281,8 @@ body {
     border-radius: var(--border-radius-custom); 
     box-shadow: var(--shadow-suve); 
     border: 1px solid rgba(25, 56, 31, 0.08); 
-    background-color: #000000; 
+    background-color: transparent; 
+    height: auto;
 }
 
 .carrossel-trilho { 
@@ -303,8 +304,8 @@ body {
 .carrossel-slide img { 
     width: 100%; 
     height: auto; 
-    max-height: 500px; 
-    object-fit: contain; 
+    display: block;
+    object-fit: cover; 
 }
 
 .carrossel-indicadores { 
