@@ -2,7 +2,7 @@
   <img src="imagens/logo_2.png" alt="Logo SustentaAgro" width="400">
 </p>
 
-# 🌾 SustentaAgro — Concurso Agrinho
+# 🌱 SustentaAgro — Concurso Agrinho
 
 > **Projeto idealizado e desenvolvido para o Concurso Agrinho, unindo inovação tecnológica, conscientização ecológica e as diretrizes globais de sustentabilidade no campo.**
 
