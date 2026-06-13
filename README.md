@@ -26,7 +26,7 @@ A plataforma conta com uma série de recursos dinâmicos construídos para engaj
 1.  **🎬 Produção Cinemática & HQ Digital:** Central multimídia que reúne animações e uma História em Quadrinhos pedagógica exclusiva focada nas transformações e boas práticas do agronegócio moderno.
 2.  **📊 Central de Conhecimento (Accordion):** Painéis interativos organizados para apresentar de forma limpa as Metas e ODS Globais, Tecnologias Sustentáveis (como gotejamento inteligente e drones) e dados estatísticos oficiais do IBGE.
 3.  **🧮 Simulador de Economia Hídrica:** Uma ferramenta algorítmica onde o usuário insere a área estimada para cultivo (em Hectares) e calcula instantaneamente o impacto positivo e o volume de água preservado com técnicas modernas.
-4.  **🎮 Quiz Agrinho:** Um jogo de perguntas e respostas dinâmico focado em fixar os conceitos de sustentabilidade e ganho agrícola explorados no site.
+4.  **🎮 Quiz Agrinho:** Um jogo de pergunta e resposta dinâmico focado em fixar os conceitos de sustentabilidade e ganho agrícola explorados no site.
 
 ---
 
