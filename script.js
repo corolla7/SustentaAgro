@@ -1,76 +1,102 @@
 // =================================================================
-// CONTROLE DO CAROUSEL LOCAL DA HISTÓRIA EM QUADRINHOS (HQ)
+// 1. CORREÇÃO DA ACESSIBILIDADE FLUTUANTE (ABRIR / FECHAR)
 // =================================================================
+const btnAbrirMenu = document.getElementById('btnAbrirMenu');
+const painelAcessibilidade = document.getElementById('painelAcessibilidade');
 
-// Lista ordenada das páginas presentes na sua pasta "imagens" do GitHub
+btnAbrirMenu.addEventListener('click', (event) => {
+    event.stopPropagation(); // Impede o clique de se propagar
+    painelAcessibilidade.classList.toggle('hidden');
+});
+
+// Fecha o painel de acessibilidade se clicar em qualquer outro lugar da tela
+document.addEventListener('click', () => {
+    painelAcessibilidade.classList.add('hidden');
+});
+painelAcessibilidade.addEventListener('click', (event) => {
+    event.stopPropagation(); // Evita fechar ao usar as opções de dentro do painel
+});
+
+
+// =================================================================
+// 2. SISTEMA VERTICAL REFORMADO (ACCORDION NATIVO)
+// =================================================================
+function toggleAccordion(headerObjeto) {
+    const itemAtual = headerObjeto.parentElement;
+    
+    // Se quiser que apenas um painel abra por vez, descomente as linhas abaixo:
+    // document.querySelectorAll('.accordion-item').forEach(item => {
+    //    if(item !== itemAtual) item.classList.remove('ativo');
+    // });
+
+    itemAtual.classList.toggle('ativo');
+}
+
+// Controle do glossário interno dos painéis
+function toggleGlossarioInterno(event, elemento) {
+    event.stopPropagation(); // Evita interferir no fechamento do painel principal
+    elemento.classList.toggle('ativo');
+}
+
+
+// =================================================================
+// 3. CAROUSEL LOCAL DA HISTÓRIA EM QUANTINHOS (HQ)
+// =================================================================
 const paginasHQ = [
     "imagens/hq_pagina1.png",
     "imagens/hq_pagina2.png",
-    "imagens/hq_pagina3.png" // Adicione quantas páginas tiver na sua pasta
+    "imagens/hq_pagina3.png"
 ];
-
 let indicePaginaAtual = 0;
 
 function mudarPaginaHQ(direcao) {
     indicePaginaAtual += direcao;
-
-    // Impede o usuário de ir além da primeira ou última página
     if (indicePaginaAtual < 0) {
         indicePaginaAtual = 0;
     } else if (indicePaginaAtual >= paginasHQ.length) {
         indicePaginaAtual = paginasHQ.length - 1;
     }
-
-    // Atualiza a imagem no HTML e o contador visual
     document.getElementById("hqPagina").src = paginasHQ[indicePaginaAtual];
     document.getElementById("hqContador").innerText = `Pág. ${indicePaginaAtual + 1}`;
 }
 
-// O restante das funções das abas e acessibilidade continuam as mesmas do script anterior...
-const triggersAba = document.querySelectorAll('.aba-trigger');
-const conteudosAba = document.querySelectorAll('.aba-conteudo');
-triggersAba.forEach(trigger => {
-    trigger.addEventListener('click', () => {
-        triggersAba.forEach(t => { t.classList.remove('ativa'); t.setAttribute('aria-selected', 'false'); });
-        conteudosAba.forEach(c => c.classList.remove('ativa'));
-        trigger.classList.add('ativa');
-        trigger.setAttribute('aria-selected', 'true');
-        const idAlvo = trigger.getAttribute('data-target');
-        document.getElementById(idAlvo).classList.add('ativa');
-    });
-});
+
+// =================================================================
+// 4. MENU MOBILE, LEITURA DE VOZ E OUTRAS FUNÇÕES ADICIONAIS
+// =================================================================
 const menuToggle = document.getElementById('menuToggle');
 const menuPrincipal = document.getElementById('menuPrincipal');
 menuToggle.addEventListener('click', () => { menuToggle.classList.toggle('active'); menuPrincipal.classList.toggle('active'); });
-document.querySelectorAll('.menu a').forEach(link => { link.addEventListener('click', () => { menuToggle.classList.remove('active'); menuPrincipal.classList.remove('active'); }); });
+
 let leituraVozHabilitada = false;
 const btnToggleVoz = document.getElementById('btnToggleVoz');
 btnToggleVoz.addEventListener('click', () => {
     leituraVozHabilitada = !leituraVozHabilitada;
-    if (leituraVozHabilitada) { btnToggleVoz.innerText = "🔊 Leitura por Voz: LIGADA"; } 
-    else { btnToggleVoz.innerText = "🔊 Ativar Leitura por Voz"; window.speechSynthesis.cancel(); }
+    btnToggleVoz.innerText = leituraVozHabilitada ? "🔊 Leitura por Voz: LIGADA" : "🔊 Ativar Leitura por Voz";
+    if (!leituraVozHabilitada) window.speechSynthesis.cancel();
 });
+
 function ouvirTextoExclusivo(idElemento) {
     window.speechSynthesis.cancel();
     const elemento = document.getElementById(idElemento);
     if (!elemento) return;
-    let textoLimpo = elemento.innerText || elemento.textContent;
-    const utterance = new SpeechSynthesisUtterance(textoLimpo);
+    const utterance = new SpeechSynthesisUtterance(elemento.innerText || elemento.textContent);
     utterance.lang = 'pt-BR';
     window.speechSynthesis.speak(utterance);
 }
-const btnTema = document.getElementById('btnTema');
-btnTema.addEventListener('click', () => {
+
+document.getElementById('btnTema').addEventListener('click', () => {
     const temaTarget = document.documentElement.getAttribute('data-tema') === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-tema', temaTarget);
 });
-function toggleGlossario(elemento) { elemento.classList.toggle('ativo'); }
+
 document.getElementById('btnCalcular').addEventListener('click', () => {
     const hectares = parseFloat(document.getElementById('hectares').value);
     if (isNaN(hectares) || hectares <= 0) return;
     document.getElementById('textoResultado').innerHTML = `Simulação Pronta! Em <strong>${hectares} hectares</strong>, economiza-se <strong>${(hectares * 15000).toLocaleString('pt-BR')} litros</strong> de água por dia.`;
     document.getElementById('resultado').classList.remove('hidden');
 });
+
 const dadosQuiz = {
     pergunta: "Qual método assegura a longevidade ambiental e o ganho agrícola?",
     opcoes: ["A) Expansão de fronteiras com desmatamento.", "B) Monitoramento cirúrgico com sensores de precisão.", "C) Descontinuamento de toda tecnologia."],
